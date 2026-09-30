@@ -262,6 +262,155 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3200);
   }
 
+  // 4. Section 2: Unified Media Slider (Video First + 8 Top View Photos)
+  const farmSlides = document.querySelectorAll('.farm-slide');
+  const farmDots = document.querySelectorAll('#farm-slider-dots button');
+  const farmThumbs = document.querySelectorAll('.farm-thumb-btn');
+  const farmSlideCounter = document.getElementById('farm-slide-counter');
+  const farmPrevBtn = document.getElementById('farm-slider-prev');
+  const farmNextBtn = document.getElementById('farm-slider-next');
+  const farmCarouselFrame = document.querySelector('#farm-media-carousel .relative.overflow-hidden');
+
+  if (farmSlides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = farmSlides.length;
+    let autoSlideInterval = null;
+
+    function goToSlide(index) {
+      const prevSlide = currentSlide;
+      currentSlide = (index + totalSlides) % totalSlides;
+
+      // If leaving video slide, pause YouTube by postMessage or re-assigning src
+      if (prevSlide === 0 && currentSlide !== 0) {
+        const videoWrapper = document.getElementById('video-player-2');
+        const iframe = videoWrapper ? videoWrapper.querySelector('iframe') : null;
+        if (iframe && iframe.contentWindow) {
+          try {
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          } catch (e) {}
+        }
+      }
+
+      // Update slides visibility
+      farmSlides.forEach((slide, i) => {
+        if (i === currentSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none');
+          slide.classList.add('opacity-100', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      // Update Counter
+      if (farmSlideCounter) {
+        if (currentSlide === 0) {
+          farmSlideCounter.textContent = `1 / ${totalSlides}: คลิปวิดีโอ`;
+        } else {
+          farmSlideCounter.textContent = `${currentSlide + 1} / ${totalSlides}: ภาพมุมสูง ${currentSlide}`;
+        }
+      }
+
+      // Update Dots
+      farmDots.forEach((dot, i) => {
+        if (i === currentSlide) {
+          dot.className = 'w-5 h-2 rounded-full bg-white transition-all cursor-pointer';
+        } else {
+          dot.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer';
+        }
+      });
+
+      // Update Thumbnails
+      farmThumbs.forEach((thumb, i) => {
+        if (i === currentSlide) {
+          thumb.className = 'farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-forest-600 ring-2 ring-forest-600/30 transition-all cursor-pointer opacity-100 scale-105 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
+        } else {
+          thumb.className = 'farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
+        }
+      });
+    }
+
+    if (farmPrevBtn) {
+      farmPrevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide - 1);
+        resetAutoSlide();
+      });
+    }
+
+    if (farmNextBtn) {
+      farmNextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide + 1);
+        resetAutoSlide();
+      });
+    }
+
+    farmDots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(i);
+        resetAutoSlide();
+      });
+    });
+
+    farmThumbs.forEach((thumb, i) => {
+      thumb.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(i);
+        resetAutoSlide();
+      });
+    });
+
+    // Autoplay only when viewing photos (slides > 0)
+    function startAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        // Only auto advance if user is already browsing photos
+        if (currentSlide > 0) {
+          goToSlide(currentSlide + 1);
+        }
+      }, 5000);
+    }
+
+    function resetAutoSlide() {
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    // Pause on hover
+    if (farmCarouselFrame) {
+      farmCarouselFrame.addEventListener('mouseenter', () => {
+        if (autoSlideInterval) clearInterval(autoSlideInterval);
+      });
+      farmCarouselFrame.addEventListener('mouseleave', () => {
+        startAutoSlide();
+      });
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      farmCarouselFrame.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      farmCarouselFrame.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            goToSlide(currentSlide + 1);
+          } else {
+            goToSlide(currentSlide - 1);
+          }
+          resetAutoSlide();
+        }
+      }, { passive: true });
+    }
+  }
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
