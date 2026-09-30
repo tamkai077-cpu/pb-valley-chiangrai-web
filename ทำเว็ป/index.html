@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>PB Valley เชียงราย | สวนโกโก้และการแปรรูประดับพรีเมียม</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cocoa: {
+              900: '#1F140E',
+              800: '#2E1B12',
+              700: '#4A2E20',
+              600: '#6B4226',
+              500: '#8E5A35',
+            },
+            gold: {
+              400: '#E9C46A',
+              500: '#D4A373',
+              600: '#B08154',
+            },
+            forest: {
+              900: '#1C3328',
+              800: '#2A4838',
+              700: '#3D6952',
+            },
+            cream: {
+              50: '#FDFBF7',
+              100: '#FAF7F2',
+              200: '#F3ECE1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Prompt & Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo/logo.jpg">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream-100 text-stone-800 antialiased selection:bg-gold-500 selection:text-white">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION BAR
+  =========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-40 nav-glass transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="logo/logo.jpg" alt="PB Valley Chiang Rai Logo" class="w-12 h-12 rounded-xl object-contain bg-white p-1 shadow-lg shadow-cocoa-900/40 group-hover:scale-105 transition-transform duration-300">
+          <div>
+            <span class="block text-xl font-bold tracking-wider font-heading text-white group-hover:text-gold-400 transition-colors">PB VALLEY</span>
+            <span class="block text-xs uppercase tracking-widest text-gold-500 font-medium">Chiang Rai • เชียงราย</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation (Without Numbers) -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-stone-300 hover:text-gold-400 font-medium text-sm transition-colors">
+            แนะนำบริษัท
+          </a>
+          <a href="#cocoa-farm" class="text-stone-300 hover:text-gold-400 font-medium text-sm transition-colors">
+            สวนโกโก้
+          </a>
+          <a href="#processing" class="text-stone-300 hover:text-gold-400 font-medium text-sm transition-colors">
+            การแปรรูป
+          </a>
+          <a href="#contact" class="text-stone-300 hover:text-gold-400 font-medium text-sm transition-colors">
+            ติดต่อเรา
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-stone-300 hover:text-white hover:bg-cocoa-800 transition-colors" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cocoa-900/95 border-b border-gold-500/20 px-4 pt-3 pb-6 space-y-3">
+      <a href="#about" class="block px-3 py-2.5 rounded-lg text-base font-medium text-stone-200 hover:bg-cocoa-800 hover:text-gold-400">
+        แนะนำบริษัท
+      </a>
+      <a href="#cocoa-farm" class="block px-3 py-2.5 rounded-lg text-base font-medium text-stone-200 hover:bg-cocoa-800 hover:text-gold-400">
+        สวนโกโก้
+      </a>
+      <a href="#processing" class="block px-3 py-2.5 rounded-lg text-base font-medium text-stone-200 hover:bg-cocoa-800 hover:text-gold-400">
+        การแปรรูป
+      </a>
+      <a href="#contact" class="block px-3 py-2.5 rounded-lg text-base font-medium text-stone-200 hover:bg-cocoa-800 hover:text-gold-400">
+        ติดต่อเรา
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION (LAKE BACKGROUND + FROSTED GLASS)
+  =========================================== -->
+  <section class="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-cocoa-900 text-white">
+    
+    <!-- Real Landscape Photo Background from img folder -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <img src="img/pjiz0z89fatki3kXbIus-o.jpg" alt="PB Valley Chiang Rai Landscape" class="w-full h-full object-cover object-center scale-105 animate-subtle-zoom">
+      <!-- Dark Multi-layer Gradient Overlay for readability and atmosphere -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1F140E]/85 via-[#1F140E]/65 to-[#1F140E]/95"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1F140E]/70 via-transparent to-[#1F140E]/70"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/15 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-medium mb-6 backdrop-blur-md shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>สัมผัสรสชาติอันล้ำค่าจากขุนเขาเมืองเหนือ</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-white mb-6 leading-tight drop-shadow-md">
+        บริษัท พีบี วัลเล่ย์ เชียงราย<br>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-amber-200 to-gold-500">
+          PB Valley Chiang Rai
+        </span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-stone-200 text-base sm:text-lg mb-10 font-light leading-relaxed drop-shadow-sm">
+        เปิดประตูสู่โลกแห่งโกโก้คุณภาพระดับพรีเมียม ถ่ายทอดความตั้งใจตั้งแต่ผืนดินธรรมชาติ การเพาะปลูกอย่างประณีต จนถึงนวัตกรรมการแปรรูปคราฟต์ช็อกโกแลตแท้ 100%
+      </p>
+
+      <!-- 3 Core Navigation Pills (Frosted Glass Cards) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+        
+        <a href="#about" class="group p-4 rounded-xl bg-cocoa-900/80 backdrop-blur-md hover:bg-cocoa-800/90 border border-gold-500/30 hover:border-gold-500/60 transition-all duration-300 text-left shadow-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gold-400">About Us</span>
+            <i class="fa-solid fa-arrow-right text-stone-400 group-hover:translate-x-1 group-hover:text-gold-400 transition-all text-xs"></i>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-gold-300 transition-colors">แนะนำบริษัท</h3>
+          <p class="text-xs text-stone-400 mt-1 line-clamp-1">วิสัยทัศน์ ความมุ่งมั่น และธรรมชาติเชียงราย</p>
+        </a>
+
+        <a href="#cocoa-farm" class="group p-4 rounded-xl bg-cocoa-900/80 backdrop-blur-md hover:bg-cocoa-800/90 border border-gold-500/30 hover:border-gold-500/60 transition-all duration-300 text-left shadow-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gold-400">Plantation</span>
+            <i class="fa-solid fa-arrow-right text-stone-400 group-hover:translate-x-1 group-hover:text-gold-400 transition-all text-xs"></i>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-gold-300 transition-colors">สวนโกโก้</h3>
+          <p class="text-xs text-stone-400 mt-1 line-clamp-1">แปลงเพาะปลูกออร์แกนิค สายพันธุ์คัดสรร</p>
+        </a>
+
+        <a href="#processing" class="group p-4 rounded-xl bg-cocoa-900/80 backdrop-blur-md hover:bg-cocoa-800/90 border border-gold-500/30 hover:border-gold-500/60 transition-all duration-300 text-left shadow-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gold-400">Processing</span>
+            <i class="fa-solid fa-arrow-right text-stone-400 group-hover:translate-x-1 group-hover:text-gold-400 transition-all text-xs"></i>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-gold-300 transition-colors">การแปรรูป</h3>
+          <p class="text-xs text-stone-400 mt-1 line-clamp-1">กระบวนการ Bean to Bar และผลิตภัณฑ์เด่น</p>
+        </a>
+
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#about" class="px-7 py-3 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-cocoa-900 font-semibold text-sm shadow-lg shadow-gold-500/20 hover:from-gold-400 hover:to-gold-500 hover:scale-105 transition-all duration-300">
+          เริ่มต้นรับชม
+        </a>
+        <a href="#contact" class="px-7 py-3 rounded-full bg-transparent hover:bg-white/10 text-stone-200 border border-white/20 font-medium text-sm transition-colors flex items-center gap-2">
+          ติดต่อเรา
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-stone-400 hover:text-gold-400 transition-colors flex flex-col items-center gap-1.5 text-xs">
+      <span>เลื่อนลง</span>
+      <i class="fa-solid fa-chevron-down animate-bounce text-sm"></i>
+    </a>
+  </section>
+
+  <!-- ==========================================
+       SECTION 1: แนะนำบริษัท (ABOUT COMPANY)
+  =========================================== -->
+  <section id="about" class="py-24 bg-cream-50 relative border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-cocoa-700 border border-gold-500/30">
+          PB Valley Chiang Rai
+        </span>
+        <span class="text-sm font-semibold tracking-wider uppercase text-gold-600">Company Overview</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Story & Philosophy -->
+        <div class="lg:col-span-6 space-y-6">
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+            แนะนำบริษัท <br>
+            <span class="text-gold-600">PB Valley เชียงราย</span>
+          </h2>
+          
+          <div class="h-1 w-20 bg-gradient-to-r from-gold-500 to-forest-700 rounded-full"></div>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            <strong>บริษัท พีบี วัลเล่ย์ เชียงราย</strong> มุ่งมั่นสืบสานปณิธานในการบุกเบิกและพัฒนาเกษตรกรรมมูลค่าสูงในประเทศไทย ด้วยการนำศักยภาพของผืนดินและสภาพภูมิอากาศอันเป็นเอกลักษณ์ของจังหวัดเชียงราย มาหลอมรวมกับความเชี่ยวชาญด้านการเกษตรประณีต เพื่อสร้างสรรค์มาตรฐานใหม่ให้แก่วงการโกโก้ไทย
+          </p>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            เราให้ความสำคัญอย่างยิ่งต่อการพัฒนาอย่างยั่งยืน (Sustainability) การอนุรักษ์สิ่งแวดล้อม และการเติบโตร่วมกับชุมชน โดยส่งเสริมองค์ความรู้และสร้างรายได้ที่มั่นคงให้แก่พี่น้องเกษตรกรในท้องถิ่น พร้อมมุ่งมั่นยกระดับโกโก้เชียงรายสู่เวทีสากล
+          </p>
+
+          <!-- Core Pillars Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-white border border-stone-200 shadow-sm flex items-start gap-3.5 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 rounded-lg bg-gold-500/10 text-gold-600 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-award text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">มาตรฐานคุณภาพระดับสูง</h4>
+                <p class="text-xs text-stone-500 mt-1">คัดสรรทุกขั้นตอนตั้งแต่เมล็ดพันธุ์จนถึงปลายทาง</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-stone-200 shadow-sm flex items-start gap-3.5 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 rounded-lg bg-forest-800/10 text-forest-800 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-leaf text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">เกษตรกรรมยั่งยืน</h4>
+                <p class="text-xs text-stone-500 mt-1">เกื้อกูลธรรมชาติ ไม่ทำลายผืนป่าและสิ่งแวดล้อม</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-stone-200 shadow-sm flex items-start gap-3.5 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-users text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">ร่วมมือกับชุมชนเชียงราย</h4>
+                <p class="text-xs text-stone-500 mt-1">สร้างงานและอาชีพที่มั่นคงแก่เกษตรกรท้องถิ่น</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-stone-200 shadow-sm flex items-start gap-3.5 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 rounded-lg bg-cocoa-700/10 text-cocoa-700 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-earth-asia text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">มุ่งสู่สากล</h4>
+                <p class="text-xs text-stone-500 mt-1">สร้างอัตลักษณ์ Single Origin ให้เชียงราย</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Video Container 1 -->
+        <div class="lg:col-span-6">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
+            
+            <div class="flex items-center gap-2 mb-3 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอแนะนำบริษัท</span>
+            </div>
+
+            <!-- Video Slot 1: แนะนำบริษัท -->
+            <div id="video-player-1" class="video-wrapper">
+              <iframe src="https://youtube.com/shorts/GWmfNK9ZifI?si=t4CyOr-7kHJRszPs" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: สวนโกโก้ (COCOA FARM)
+  =========================================== -->
+  <section id="cocoa-farm" class="py-24 bg-cream-200/50 relative border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-forest-800/15 text-forest-800 border border-forest-800/30">
+          สวนโกโก้เชียงราย
+        </span>
+        <span class="text-sm font-semibold tracking-wider uppercase text-forest-700">Terroir & Plantation</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Video Container 2 -->
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
+            
+            <div class="flex items-center gap-2 mb-3 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-forest-700 animate-pulse"></span>
+              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอพาชมสวนโกโก้</span>
+            </div>
+
+            <!-- Video Slot 2: สวนโกโก้ -->
+            <div id="video-player-2" class="video-wrapper">
+              <iframe src="วางลิงก์_YouTube_ส่วนที่_2_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Cocoa Farm Features -->
+        <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+            สวนโกโก้เชียงราย <br>
+            <span class="text-forest-700">อุดมสมบูรณ์ด้วยผืนดินและไอหมอก</span>
+          </h2>
+          
+          <div class="h-1 w-20 bg-gradient-to-r from-forest-700 to-gold-500 rounded-full"></div>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            จังหวัดเชียงรายตั้งอยู่ในพิกัดที่มีภูมิประเทศเป็นภูเขาสูง มีอากาศเย็นสบายตลอดปี พร้อมดินตะกอนภูเขาไฟและดินร่วนที่อุดมสมบูรณ์ด้วยแร่ธาตุธรรมชาติ ซึ่งเป็นปัจจัยสำคัญยิ่ง (Terroir) ที่ส่งผลต่อเอกลักษณ์และกลิ่นรสอันซับซ้อนของเมล็ดโกโก้
+          </p>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            เราบริหารจัดการแปลงปลูกในรูปแบบ <strong>วนเกษตร (Agroforestry)</strong> โดยปลูกโกโก้ร่วมกับร่มเงาของไม้ยืนต้นเมืองหนาว ช่วยสร้างระบบนิเวศที่สมดุล ป้องกันแมลงศัตรูพืชตามธรรมชาติ และให้ผลผลิตโกโก้สดที่เปี่ยมด้วยสารอาหาร
+          </p>
+
+          <!-- Key Highlights -->
+          <div class="space-y-3.5 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-forest-800 text-white flex items-center justify-center text-xs mt-0.5 shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">การคัดเลือกสายพันธุ์คุณภาพสูง</h4>
+                <p class="text-xs text-stone-600">คัดเลือกต้นพันธุ์โกโก้ที่ให้เปอร์เซ็นต์ไขมันโกโก้ (Cocoa Butter) สูง และโน้ตกลิ่นรสหอมหวานโทนผลไม้และถั่ว</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-forest-800 text-white flex items-center justify-center text-xs mt-0.5 shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">การเก็บเกี่ยวด้วยมือเฉพาะผลสุกเต็มที่ (Selective Hand-Picking)</h4>
+                <p class="text-xs text-stone-600">คัดเก็บเฉพาะผลโกโก้ที่มีค่าความหวาน (Brix) สูงสุด เพื่อให้การหมักเกิดรสชาติที่กลมกล่อมที่สุด</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-forest-800 text-white flex items-center justify-center text-xs mt-0.5 shrink-0">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-cocoa-900 text-sm">แหล่งท่องเที่ยวเชิงเกษตรและการเรียนรู้</h4>
+                <p class="text-xs text-stone-600">พร้อมเปิดให้ผู้เยี่ยมชมได้สัมผัสต้นโกโก้จริง ชิมเนื้อโกโก้สดจากผล และสัมผัสประสบการณ์ใกล้ชิดธรรมชาติ</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: การแปรรูป (PROCESSING & CRAFT)
+  =========================================== -->
+  <section id="processing" class="py-24 bg-cream-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-cocoa-800/15 text-cocoa-800 border border-cocoa-800/30">
+          โรงเรือนและการแปรรูป
+        </span>
+        <span class="text-sm font-semibold tracking-wider uppercase text-cocoa-700">Artisan Processing</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+        
+        <!-- Left Column: Story -->
+        <div class="lg:col-span-6 space-y-6">
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+            การแปรรูปโกโก้ <br>
+            <span class="text-cocoa-700">ศาสตร์และศิลป์แห่ง Bean to Bar</span>
+          </h2>
+          
+          <div class="h-1 w-20 bg-gradient-to-r from-cocoa-700 to-gold-500 rounded-full"></div>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            จากเมล็ดสดในผลโกโก้สู่ช็อกโกแลตระดับพรีเมียม PB Valley เชียงราย ควบคุมคุณภาพอย่างเข้มงวดในทุกขั้นตอน การแปรรูปโกโก้ไม่ใช่เพียงแค่กระบวนการทางอุตสาหกรรม แต่คือ <strong>"งานคราฟต์ที่พิถีพิถัน"</strong> เพื่อดึงเอากลิ่นอายเฉพาะตัวของเชียงรายออกมาให้เด่นชัดที่สุด
+          </p>
+
+          <p class="text-stone-600 text-base leading-relaxed">
+            เราพัฒนาสูตรการหมักและการคั่วโดยผู้เชี่ยวชาญ ทำให้ได้ผลิตภัณฑ์ที่ปราศจากการแต่งกลิ่นสังเคราะห์ คงไว้ซึ่งสารต้านอนุมูลอิสระ (Flavanols) และไขมันโกโก้ธรรมชาติที่ให้ประโยชน์ต่อสุขภาพอย่างเต็มเปี่ยม
+          </p>
+
+          <!-- Key Processing Pillars Tags -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-xs font-medium text-stone-700">
+              <i class="fa-solid fa-temperature-arrow-up text-gold-600 mr-1"></i> ควบคุมอุณหภูมิแม่นยำ
+            </span>
+            <span class="px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-xs font-medium text-stone-700">
+              <i class="fa-solid fa-sun text-amber-500 mr-1"></i> ตากแห้งแดดธรรมชาติ
+            </span>
+            <span class="px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-xs font-medium text-stone-700">
+              <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> ปลอดสารเคมีและวัตถุกันเสีย
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Column: Video Container 3 -->
+        <div class="lg:col-span-6">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
+            
+            <div class="flex items-center gap-2 mb-3 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-600 animate-pulse"></span>
+              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอกระบวนการแปรรูป</span>
+            </div>
+
+            <!-- Video Slot 3: การแปรรูป -->
+            <div id="video-player-3" class="video-wrapper">
+              <iframe src="วางลิงก์_YouTube_ส่วนที่_3_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5-Step Bean to Bar Process Cards -->
+      <div class="mt-12">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h3 class="text-2xl font-bold font-heading text-cocoa-900 mb-2">5 ขั้นตอนการแปรรูปจากต้นสู่ช็อกโกแลต</h3>
+          <p class="text-stone-500 text-sm">การเดินทางของเมล็ดโกโก้เชียงรายสู่ความพรีเมียม</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <div class="process-step-card bg-white p-5 rounded-2xl border border-stone-200 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                1
+              </div>
+              <h4 class="font-bold text-cocoa-900 text-sm mb-1">การแกะและคัดเมล็ด</h4>
+              <p class="text-xs text-stone-500 leading-relaxed">
+                ผ่าผลสดอย่างระมัดระวัง คัดแยกเมล็ดที่สมบูรณ์พร้อมเนื้อเยื่อหวานฉ่ำ
+              </p>
+            </div>
+            <span class="mt-4 inline-block text-[11px] font-medium text-gold-600 bg-gold-50 py-1 px-2 rounded">Harvest & Sort</span>
+          </div>
+
+          <div class="process-step-card bg-white p-5 rounded-2xl border border-stone-200 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                2
+              </div>
+              <h4 class="font-bold text-cocoa-900 text-sm mb-1">การหมักบ่ม 5-7 วัน</h4>
+              <p class="text-xs text-stone-500 leading-relaxed">
+                หมักในกล่องไม้ตามสูตรเฉพาะ เพื่อปลุกกลิ่นอโรม่าและรสเปรี้ยวอมผลไม้
+              </p>
+            </div>
+            <span class="mt-4 inline-block text-[11px] font-medium text-amber-600 bg-amber-50 py-1 px-2 rounded">Fermentation</span>
+          </div>
+
+          <div class="process-step-card bg-white p-5 rounded-2xl border border-stone-200 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                3
+              </div>
+              <h4 class="font-bold text-cocoa-900 text-sm mb-1">การตากแดดธรรมชาติ</h4>
+              <p class="text-xs text-stone-500 leading-relaxed">
+                ตากในโรงเรือนพลังงานแสงอาทิตย์ พลิกกลับสม่ำเสมอจนแห้งพอเหมาะ
+              </p>
+            </div>
+            <span class="mt-4 inline-block text-[11px] font-medium text-orange-600 bg-orange-50 py-1 px-2 rounded">Sun Drying</span>
+          </div>
+
+          <div class="process-step-card bg-white p-5 rounded-2xl border border-stone-200 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cocoa-700/10 text-cocoa-700 flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                4
+              </div>
+              <h4 class="font-bold text-cocoa-900 text-sm mb-1">การคั่วแบบประณีต</h4>
+              <p class="text-xs text-stone-500 leading-relaxed">
+                ควบคุมอุณหภูมิและเวลาเฉพาะจุด เพื่อดึงความเข้มข้น หอมละมุน ชัดเจน
+              </p>
+            </div>
+            <span class="mt-4 inline-block text-[11px] font-medium text-cocoa-700 bg-stone-100 py-1 px-2 rounded">Precision Roast</span>
+          </div>
+
+          <div class="process-step-card bg-white p-5 rounded-2xl border border-stone-200 text-center flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cocoa-900/10 text-cocoa-900 flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                5
+              </div>
+              <h4 class="font-bold text-cocoa-900 text-sm mb-1">การบดและแปรรูป</h4>
+              <p class="text-xs text-stone-500 leading-relaxed">
+                บดละเอียด Conching จนได้เนื้อเนียน นำไปทำช็อกโกแลต ผง และเนยโกโก้
+              </p>
+            </div>
+            <span class="mt-4 inline-block text-[11px] font-medium text-cocoa-900 bg-stone-100 py-1 px-2 rounded">Grind & Conche</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Processed Products Showcase -->
+      <div class="mt-16 p-8 rounded-3xl bg-cocoa-900 text-white relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gold-400">Our Products</span>
+              <h3 class="text-2xl font-bold font-heading text-white">ผลิตภัณฑ์แปรรูปเด่นของ PB Valley เชียงราย</h3>
+            </div>
+            <p class="text-xs text-stone-300 max-w-md">
+              ผลิตจากเมล็ดโกโก้แท้ 100% ปราศจากไขมันพืชสังเคราะห์และสารกันบูด รสชาติล้ำลึกจากขุนเขาเชียงราย
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            
+            <div class="p-4 rounded-xl bg-cocoa-800/80 border border-gold-500/20 text-center hover:bg-cocoa-700/80 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-cube text-xl"></i>
+              </div>
+              <h4 class="font-bold text-sm text-white mb-1">คราฟต์ช็อกโกแลต</h4>
+              <p class="text-[11px] text-stone-400">Single Origin 70%, 80%, 100%</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cocoa-800/80 border border-gold-500/20 text-center hover:bg-cocoa-700/80 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-mortar-pestle text-xl"></i>
+              </div>
+              <h4 class="font-bold text-sm text-white mb-1">ผงโกโก้แท้ 100%</h4>
+              <p class="text-[11px] text-stone-400">หอมเข้มข้น ดื่มง่าย ได้สุขภาพ</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cocoa-800/80 border border-gold-500/20 text-center hover:bg-cocoa-700/80 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-cookie-bite text-xl"></i>
+              </div>
+              <h4 class="font-bold text-sm text-white mb-1">โกโก้นิบส์อบกรอบ</h4>
+              <p class="text-[11px] text-stone-400">Cocoa Nibs ซูเปอร์ฟู้ดจากธรรมชาติ</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cocoa-800/80 border border-gold-500/20 text-center hover:bg-cocoa-700/80 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-mug-hot text-xl"></i>
+              </div>
+              <h4 class="font-bold text-sm text-white mb-1">ชาเปลือกโกโก้</h4>
+              <p class="text-[11px] text-stone-400">Cocoa Husk Tea หอมละมุน ผ่อนคลาย</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACT & LOCATION SECTION
+  =========================================== -->
+  <section id="contact" class="py-20 bg-cream-200/40 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-cocoa-700 border border-gold-500/30">
+          ติดต่อเรา
+        </span>
+        <h2 class="text-3xl font-bold font-heading text-cocoa-900 mt-3 mb-2">เยี่ยมชม PB Valley เชียงราย</h2>
+        <p class="text-stone-600 text-sm">พร้อมเปิดต้อนรับทุกท่านสู่โลกแห่งโกโก้ และรับฟังทุกข้อเสนอแนะ</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-full bg-gold-500/15 text-gold-600 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-location-dot text-xl"></i>
+          </div>
+          <h4 class="font-bold text-cocoa-900 text-sm mb-1">สถานที่ตั้ง</h4>
+          <p class="text-xs text-stone-500">จังหวัดเชียงราย, ประเทศไทย</p>
+          <p class="text-xs text-stone-400 mt-1">บรรยากาศร่มรื่นริมทะเลสาบและขุนเขา</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-full bg-forest-800/15 text-forest-800 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-regular fa-clock text-xl"></i>
+          </div>
+          <h4 class="font-bold text-cocoa-900 text-sm mb-1">เวลาทำการ</h4>
+          <p class="text-xs text-stone-500">เปิดให้บริการทุกวัน</p>
+          <p class="text-xs text-stone-600 mt-1 font-medium">08:30 น. - 17:30 น.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-full bg-cocoa-700/15 text-cocoa-700 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-phone text-xl"></i>
+          </div>
+          <h4 class="font-bold text-cocoa-900 text-sm mb-1">ช่องทางติดต่อ</h4>
+          <p class="text-xs text-stone-500">สอบถามข้อมูลเพิ่มเติม / นัดหมาย</p>
+          <p class="text-xs text-gold-600 mt-1 font-semibold">โทรศัพท์ / LINE Official</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+  <footer class="bg-cocoa-900 text-stone-400 py-12 border-t border-gold-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <img src="logo/logo.jpg" alt="PB Valley Logo" class="w-10 h-10 rounded-lg bg-white p-1 object-contain shadow-sm">
+          <div>
+            <span class="block text-white font-bold font-heading text-sm">PB VALLEY CHIANG RAI</span>
+            <span class="block text-[11px] text-stone-400">บริษัท พีบี วัลเล่ย์ เชียงราย จำกัด</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-xs">
+          <a href="#about" class="hover:text-gold-400 transition-colors">แนะนำบริษัท</a>
+          <a href="#cocoa-farm" class="hover:text-gold-400 transition-colors">สวนโกโก้</a>
+          <a href="#processing" class="hover:text-gold-400 transition-colors">การแปรรูป</a>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+        <p>© 2026 PB Valley Chiang Rai. All rights reserved.</p>
+        <p class="mt-2 sm:mt-0">เว็บไซต์พร้อมสำหรับนำคลิปวิดีโอทั้ง 3 ส่วนมาใส่ได้ทันที</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

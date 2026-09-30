@@ -1,0 +1,179 @@
+/* ==============================================================
+   PB VALLEY CHIANG RAI - CLASSIC LUXURY THEME
+   Warm Cocoa, Amber Gold & Forest Mountain Tones
+   Clean, Elegant, and Subtle Modern Interactions
+   ============================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --font-prompt: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-kanit: 'Kanit', sans-serif;
+  
+  --cocoa-dark: #1F140E;
+  --cocoa-rich: #2E1B12;
+  --cocoa-wood: #4A2E20;
+  --cocoa-warm: #6B4226;
+  --cocoa-light: #8E5A35;
+  
+  --gold-primary: #D4A373;
+  --gold-accent: #E9C46A;
+  --gold-light: #F4E2BD;
+  
+  --nature-deep: #1C3328;
+  --nature-forest: #2A4838;
+  --nature-leaf: #3D6952;
+  --nature-soft: #E8F0EB;
+  
+  --bg-cream: #FAF7F2;
+  --bg-cream-dark: #F3ECE1;
+  --text-main: #241E1A;
+  --text-muted: #665D56;
+}
+
+body {
+  font-family: var(--font-prompt);
+  background-color: var(--bg-cream);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-kanit);
+}
+
+/* Glassmorphism Navigation */
+.nav-glass {
+  background: rgba(31, 20, 14, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+}
+
+/* Subtle Zoom Animation for Lake Hero Background */
+@keyframes subtleZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+/* Video Player Containers */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px -10px rgba(31, 20, 14, 0.35);
+  background-color: #120b08;
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-wrapper:hover {
+  box-shadow: 0 20px 35px -5px rgba(31, 20, 14, 0.4);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+/* Video Placeholder Screen */
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #2b1a13 0%, #170d09 100%);
+  color: #FAF7F2;
+  text-align: center;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.video-placeholder.hidden {
+  display: none !important;
+}
+
+/* Classic Pulsing Play Button */
+.play-pulse-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4A373, #B08154);
+  color: #1F140E;
+  box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.7);
+  animation: pulse-ring 2s infinite cubic-bezier(0.45, 0, 0, 1);
+  transition: transform 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+}
+
+.play-pulse-btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #E9C46A, #D4A373);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(212, 163, 115, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 163, 115, 0);
+  }
+}
+
+/* Elegant Subtle Card Hover */
+.process-step-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -5px rgba(74, 46, 32, 0.12);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A373;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B08154;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  background-color: rgba(18, 11, 8, 0.75);
+  backdrop-filter: blur(6px);
+}
