@@ -207,24 +207,56 @@
   <section id="about" class="py-24 bg-cream-50 relative border-b border-stone-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header Tag -->
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-cocoa-700 border border-gold-500/30">
-          PB Valley Chiang Rai
-        </span>
-        <span class="text-sm font-semibold tracking-wider uppercase text-gold-600">Company Overview</span>
+      <!-- Mobile Header: แสดงเฉพาะหน้าจอมือถือ (หัวข้อขึ้นก่อนคลิป) -->
+      <div class="block lg:hidden mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-cocoa-700 border border-gold-500/30">
+            PB Valley Chiang Rai
+          </span>
+          <span class="text-sm font-semibold tracking-wider uppercase text-gold-600">Company Overview</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+          แนะนำบริษัท <br>
+          <span class="text-gold-600">PB Valley เชียงราย</span>
+        </h2>
+        <div class="h-1 w-20 bg-gradient-to-r from-gold-500 to-forest-700 rounded-full mt-4"></div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
-        <!-- Left Column: Story & Philosophy -->
-        <div class="lg:col-span-6 space-y-6">
-          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
-            แนะนำบริษัท <br>
-            <span class="text-gold-600">PB Valley เชียงราย</span>
-          </h2>
-          
-          <div class="h-1 w-20 bg-gradient-to-r from-gold-500 to-forest-700 rounded-full"></div>
+        <!-- Video Container 1: บนมือถือแสดงต่อจากหัวข้อ (order-1), บนคอมอยู่คอลัมน์ขวา (lg:order-2) -->
+        <div class="order-1 lg:order-2 lg:col-span-6 w-full">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
+            
+            <div class="flex items-center gap-2 mb-3 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอแนะนำบริษัท</span>
+            </div>
+
+            <!-- Video Slot 1: แนะนำบริษัท -->
+            <div id="video-player-1" class="video-wrapper">
+              <iframe src="วางลิงก์_YouTube_ส่วนที่_1_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Left Column: Story & Philosophy: บนมือถือแสดงหลังคลิป (order-2), บนคอมอยู่คอลัมน์ซ้าย (lg:order-1) -->
+        <div class="order-2 lg:order-1 lg:col-span-6 space-y-6 w-full">
+          <!-- Desktop Header: แสดงเฉพาะหน้าจอคอม -->
+          <div class="hidden lg:block">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-cocoa-700 border border-gold-500/30">
+                PB Valley Chiang Rai
+              </span>
+              <span class="text-sm font-semibold tracking-wider uppercase text-gold-600">Company Overview</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+              แนะนำบริษัท <br>
+              <span class="text-gold-600">PB Valley เชียงราย</span>
+            </h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-gold-500 to-forest-700 rounded-full mt-4"></div>
+          </div>
 
           <p class="text-stone-600 text-base leading-relaxed">
             <strong>บริษัท พีบี วัลเล่ย์ เชียงราย</strong> มุ่งมั่นสืบสานปณิธานในการบุกเบิกและพัฒนาเกษตรกรรมมูลค่าสูงในประเทศไทย ด้วยการนำศักยภาพของผืนดินและสภาพภูมิอากาศอันเป็นเอกลักษณ์ของจังหวัดเชียงราย มาหลอมรวมกับความเชี่ยวชาญด้านการเกษตรประณีต เพื่อสร้างสรรค์มาตรฐานใหม่ให้แก่วงการโกโก้ไทย
@@ -279,23 +311,6 @@
 
         </div>
 
-        <!-- Right Column: Video Container 1 -->
-        <div class="lg:col-span-6">
-          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
-            
-            <div class="flex items-center gap-2 mb-3 px-1">
-              <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
-              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอแนะนำบริษัท</span>
-            </div>
-
-            <!-- Video Slot 1: แนะนำบริษัท -->
-            <div id="video-player-1" class="video-wrapper">
-              <iframe src="วางลิงก์_YouTube_ส่วนที่_1_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -307,18 +322,25 @@
   <section id="cocoa-farm" class="py-24 bg-cream-200/50 relative border-b border-stone-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header Tag -->
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-forest-800/15 text-forest-800 border border-forest-800/30">
-          สวนโกโก้เชียงราย
-        </span>
-        <span class="text-sm font-semibold tracking-wider uppercase text-forest-700">Terroir & Plantation</span>
+      <!-- Mobile Header: แสดงเฉพาะหน้าจอมือถือ (หัวข้อขึ้นก่อนคลิป) -->
+      <div class="block lg:hidden mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-forest-800/15 text-forest-800 border border-forest-800/30">
+            สวนโกโก้เชียงราย
+          </span>
+          <span class="text-sm font-semibold tracking-wider uppercase text-forest-700">Terroir & Plantation</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+          สวนโกโก้เชียงราย <br>
+          <span class="text-forest-700">อุดมสมบูรณ์ด้วยผืนดินและไอหมอก</span>
+        </h2>
+        <div class="h-1 w-20 bg-gradient-to-r from-forest-700 to-gold-500 rounded-full mt-4"></div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
-        <!-- Left Column: Video & Top View Photos Slider -->
-        <div class="lg:col-span-6 order-2 lg:order-1">
+        <!-- Left Column: Video & Top View Photos Slider: บนมือถือแสดงต่อจากหัวข้อ (order-1), บนคอมอยู่คอลัมน์ซ้าย (lg:order-1) -->
+        <div class="order-1 lg:order-1 lg:col-span-6 w-full">
           <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
             
             <div class="flex items-center justify-between mb-3 px-1">
@@ -484,14 +506,22 @@
           </div>
         </div>
 
-        <!-- Right Column: Cocoa Farm Features -->
-        <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
-          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
-            สวนโกโก้เชียงราย <br>
-            <span class="text-forest-700">อุดมสมบูรณ์ด้วยผืนดินและไอหมอก</span>
-          </h2>
-          
-          <div class="h-1 w-20 bg-gradient-to-r from-forest-700 to-gold-500 rounded-full"></div>
+        <!-- Right Column: Cocoa Farm Features: บนมือถือแสดงหลังคลิป (order-2), บนคอมอยู่คอลัมน์ขวา (lg:order-2) -->
+        <div class="order-2 lg:order-2 lg:col-span-6 space-y-6 w-full">
+          <!-- Desktop Header: แสดงเฉพาะหน้าจอคอม -->
+          <div class="hidden lg:block">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-forest-800/15 text-forest-800 border border-forest-800/30">
+                สวนโกโก้เชียงราย
+              </span>
+              <span class="text-sm font-semibold tracking-wider uppercase text-forest-700">Terroir & Plantation</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+              สวนโกโก้เชียงราย <br>
+              <span class="text-forest-700">อุดมสมบูรณ์ด้วยผืนดินและไอหมอก</span>
+            </h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-forest-700 to-gold-500 rounded-full mt-4"></div>
+          </div>
 
           <p class="text-stone-600 text-base leading-relaxed">
             จังหวัดเชียงรายตั้งอยู่ในพิกัดที่มีภูมิประเทศเป็นภูเขาสูง มีอากาศเย็นสบายตลอดปี พร้อมดินตะกอนภูเขาไฟและดินร่วนที่อุดมสมบูรณ์ด้วยแร่ธาตุธรรมชาติ ซึ่งเป็นปัจจัยสำคัญยิ่ง (Terroir) ที่ส่งผลต่อเอกลักษณ์และกลิ่นรสอันซับซ้อนของเมล็ดโกโก้
@@ -547,24 +577,56 @@
   <section id="processing" class="py-24 bg-cream-50 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header Tag -->
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-cocoa-800/15 text-cocoa-800 border border-cocoa-800/30">
-          โรงเรือนและการแปรรูป
-        </span>
-        <span class="text-sm font-semibold tracking-wider uppercase text-cocoa-700">Artisan Processing</span>
+      <!-- Mobile Header: แสดงเฉพาะหน้าจอมือถือ (หัวข้อขึ้นก่อนคลิป) -->
+      <div class="block lg:hidden mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-cocoa-800/15 text-cocoa-800 border border-cocoa-800/30">
+            โรงเรือนและการแปรรูป
+          </span>
+          <span class="text-sm font-semibold tracking-wider uppercase text-cocoa-700">Artisan Processing</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+          การแปรรูปโกโก้ <br>
+          <span class="text-cocoa-700">ศาสตร์และศิลป์แห่ง Bean to Bar</span>
+        </h2>
+        <div class="h-1 w-20 bg-gradient-to-r from-cocoa-700 to-gold-500 rounded-full mt-4"></div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
         
-        <!-- Left Column: Story -->
-        <div class="lg:col-span-6 space-y-6">
-          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
-            การแปรรูปโกโก้ <br>
-            <span class="text-cocoa-700">ศาสตร์และศิลป์แห่ง Bean to Bar</span>
-          </h2>
-          
-          <div class="h-1 w-20 bg-gradient-to-r from-cocoa-700 to-gold-500 rounded-full"></div>
+        <!-- Video Container 3: บนมือถือแสดงต่อจากหัวข้อ (order-1), บนคอมอยู่คอลัมน์ขวา (lg:order-2) -->
+        <div class="order-1 lg:order-2 lg:col-span-6 w-full">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
+            
+            <div class="flex items-center gap-2 mb-3 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-600 animate-pulse"></span>
+              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอกระบวนการแปรรูป</span>
+            </div>
+
+            <!-- Video Slot 3: การแปรรูป -->
+            <div id="video-player-3" class="video-wrapper">
+              <iframe src="วางลิงก์_YouTube_ส่วนที่_3_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Left Column: Story: บนมือถือแสดงหลังคลิป (order-2), บนคอมอยู่คอลัมน์ซ้าย (lg:order-1) -->
+        <div class="order-2 lg:order-1 lg:col-span-6 space-y-6 w-full">
+          <!-- Desktop Header: แสดงเฉพาะหน้าจอคอม -->
+          <div class="hidden lg:block">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-cocoa-800/15 text-cocoa-800 border border-cocoa-800/30">
+                โรงเรือนและการแปรรูป
+              </span>
+              <span class="text-sm font-semibold tracking-wider uppercase text-cocoa-700">Artisan Processing</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold font-heading text-cocoa-900 leading-tight">
+              การแปรรูปโกโก้ <br>
+              <span class="text-cocoa-700">ศาสตร์และศิลป์แห่ง Bean to Bar</span>
+            </h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-cocoa-700 to-gold-500 rounded-full mt-4"></div>
+          </div>
 
           <p class="text-stone-600 text-base leading-relaxed">
             จากเมล็ดสดในผลโกโก้สู่ช็อกโกแลตระดับพรีเมียม PB Valley เชียงราย ควบคุมคุณภาพอย่างเข้มงวดในทุกขั้นตอน การแปรรูปโกโก้ไม่ใช่เพียงแค่กระบวนการทางอุตสาหกรรม แต่คือ <strong>"งานคราฟต์ที่พิถีพิถัน"</strong> เพื่อดึงเอากลิ่นอายเฉพาะตัวของเชียงรายออกมาให้เด่นชัดที่สุด
@@ -585,23 +647,6 @@
             <span class="px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-xs font-medium text-stone-700">
               <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> ปลอดสารเคมีและวัตถุกันเสีย
             </span>
-          </div>
-        </div>
-
-        <!-- Right Column: Video Container 3 -->
-        <div class="lg:col-span-6">
-          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-md">
-            
-            <div class="flex items-center gap-2 mb-3 px-1">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-600 animate-pulse"></span>
-              <span class="font-semibold text-xs tracking-wider uppercase text-cocoa-800">คลิปวิดีโอกระบวนการแปรรูป</span>
-            </div>
-
-            <!-- Video Slot 3: การแปรรูป -->
-            <div id="video-player-3" class="video-wrapper">
-              <iframe src="วางลิงก์_YouTube_ส่วนที่_3_ตรงนี้" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-
           </div>
         </div>
 
