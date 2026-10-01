@@ -156,12 +156,18 @@ window.TRANSLATIONS = {
     "weather.humidity": "ความชื้น",
     "weather.wind": "ความเร็วลม",
     "weather.hero_label": "ไร่เชียงราย",
-    "weather.demo_label": "เอฟเฟกต์หน้าปก:",
-    "weather.demo_sunny": "☀️ แดดออก/ใบไม้",
-    "weather.demo_rainy": "🌧️ ฝนตก",
-    "weather.demo_misty": "🌫️ หมอกลง",
-    "weather.demo_night": "🌙 หิ่งห้อย",
-    "weather.demo_auto": "⚡ สดตามจริง",
+    "weather.location_note": "ไร่ พีบี วัลเล่ย์ • ริมทะเลสาบและสวนโกโก้",
+    "weather.demo_label": "เลือกบรรยากาศหน้าปก:",
+    "weather.demo_hint": "คลิกเปลี่ยนเอฟเฟกต์",
+    "weather.demo_sunny": "แดดออก",
+    "weather.demo_rainy": "ฝนตก",
+    "weather.demo_misty": "หมอกลง",
+    "weather.demo_night": "หิ่งห้อย",
+    "weather.demo_auto": "สดจริง",
+
+    // Video Placeholders
+    "video.placeholder_title": "รอวางลิงก์ YouTube",
+    "video.placeholder_desc": "เปิดไฟล์ index.html ใน VS Code แล้ววางแท็ก <iframe> หรือลิงก์คลิปวิดีโอได้ทันที",
 
     // Footer
     "footer.company": "บริษัท พีบี วัลเล่ย์ เชียงราย จำกัด",
@@ -321,12 +327,18 @@ window.TRANSLATIONS = {
     "weather.humidity": "Humidity",
     "weather.wind": "Wind",
     "weather.hero_label": "Chiang Rai Farm",
+    "weather.location_note": "PB Valley • Lakeside & Cocoa Estate",
     "weather.demo_label": "Hero Atmosphere:",
-    "weather.demo_sunny": "☀️ Sunny / Leaves",
-    "weather.demo_rainy": "🌧️ Rain",
-    "weather.demo_misty": "🌫️ Mist",
-    "weather.demo_night": "🌙 Fireflies",
-    "weather.demo_auto": "⚡ Live GPS",
+    "weather.demo_hint": "Click to preview",
+    "weather.demo_sunny": "Sunny",
+    "weather.demo_rainy": "Rainy",
+    "weather.demo_misty": "Misty",
+    "weather.demo_night": "Fireflies",
+    "weather.demo_auto": "Live GPS",
+
+    // Video Placeholders
+    "video.placeholder_title": "Waiting for YouTube Video Link",
+    "video.placeholder_desc": "Open index.html in VS Code and paste your YouTube <iframe> embed tag or video link.",
 
     // Footer
     "footer.company": "PB Valley Chiang Rai Co., Ltd.",

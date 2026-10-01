@@ -42,41 +42,50 @@ while ($listener.IsListening) {
         $request = $context.Request
         $response = $context.Response
 
-        $rawPath = $request.Url.LocalPath.TrimStart('/')
-        if ([string]::IsNullOrEmpty($rawPath) -or $rawPath -eq '/') {
-            $rawPath = 'index.html'
-        }
-
-        $rawPath = [System.Uri]::UnescapeDataString($rawPath)
-        $filePath = Join-Path $baseDir $rawPath
-
-        if (Test-Path -Path $filePath -PathType Leaf) {
-            $bytes = [System.IO.File]::ReadAllBytes($filePath)
-            $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
-
-            switch ($ext) {
-                '.html' { $response.ContentType = 'text/html; charset=utf-8' }
-                '.htm'  { $response.ContentType = 'text/html; charset=utf-8' }
-                '.css'  { $response.ContentType = 'text/css; charset=utf-8' }
-                '.js'   { $response.ContentType = 'application/javascript; charset=utf-8' }
-                '.json' { $response.ContentType = 'application/json; charset=utf-8' }
-                '.png'  { $response.ContentType = 'image/png' }
-                '.jpg'  { $response.ContentType = 'image/jpeg' }
-                '.jpeg' { $response.ContentType = 'image/jpeg' }
-                '.webp' { $response.ContentType = 'image/webp' }
-                '.svg'  { $response.ContentType = 'image/svg+xml' }
-                '.mp4'  { $response.ContentType = 'video/mp4' }
-                default { $response.ContentType = 'application/octet-stream' }
+        try {
+            $rawPath = $request.Url.LocalPath.TrimStart('/')
+            if ([string]::IsNullOrEmpty($rawPath) -or $rawPath -eq '/') {
+                $rawPath = 'index.html'
             }
 
-            $response.ContentLength64 = $bytes.Length
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
-        } else {
-            $response.StatusCode = 404
-            $msg = [System.Text.Encoding]::UTF8.GetBytes("File Not Found: $rawPath")
-            $response.OutputStream.Write($msg, 0, $msg.Length)
+            try {
+                $rawPath = [System.Uri]::UnescapeDataString($rawPath)
+            } catch {
+                # In case path is already unescaped or has raw % characters
+            }
+
+            $filePath = Join-Path $baseDir $rawPath
+
+            if (Test-Path -Path $filePath -PathType Leaf) {
+                $bytes = [System.IO.File]::ReadAllBytes($filePath)
+                $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
+
+                switch ($ext) {
+                    '.html' { $response.ContentType = 'text/html; charset=utf-8' }
+                    '.htm'  { $response.ContentType = 'text/html; charset=utf-8' }
+                    '.css'  { $response.ContentType = 'text/css; charset=utf-8' }
+                    '.js'   { $response.ContentType = 'application/javascript; charset=utf-8' }
+                    '.json' { $response.ContentType = 'application/json; charset=utf-8' }
+                    '.png'  { $response.ContentType = 'image/png' }
+                    '.jpg'  { $response.ContentType = 'image/jpeg' }
+                    '.jpeg' { $response.ContentType = 'image/jpeg' }
+                    '.webp' { $response.ContentType = 'image/webp' }
+                    '.svg'  { $response.ContentType = 'image/svg+xml' }
+                    '.mp4'  { $response.ContentType = 'video/mp4' }
+                    default { $response.ContentType = 'application/octet-stream' }
+                }
+
+                $response.ContentLength64 = $bytes.Length
+                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            } else {
+                $response.StatusCode = 404
+                $msg = [System.Text.Encoding]::UTF8.GetBytes("File Not Found: $rawPath")
+                $response.OutputStream.Write($msg, 0, $msg.Length)
+            }
+        } finally {
+            try { $response.OutputStream.Close() } catch {}
+            try { $response.Close() } catch {}
         }
-        $response.OutputStream.Close()
     } catch {
         # Ignore client disconnects
     }

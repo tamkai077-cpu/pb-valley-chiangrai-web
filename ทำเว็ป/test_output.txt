@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th"><head>
+<script>
+window.errors = [];
+window.onerror = function(msg, url, line, col, error) {
+  window.errors.push({msg: msg, line: line, col: col, error: (error ? error.stack : '')});
+};
+</script>
+<script src="js/translations.js"></script>
+<title>PB Valley เชียงราย - ไร่โกโก้คุณภาพริมทะเลสาบ</title></head>
+<body>
+<div id="hero-weather-particles"></div>
+<span id="hero-weather-icon"></span>
+<span id="hero-weather-text"><strong id="hero-weather-temp">--ยฐC</strong><span id="hero-weather-desc">--</span></span>
+<div id="farm-weather-widget">
+  <i id="weather-icon-main"></i>
+  <span id="weather-temp-main">--ยฐC</span>
+  <span id="weather-desc-main">--</span>
+  <strong id="weather-humidity-val">--%</strong>
+  <strong id="weather-wind-val">-- km/h</strong>
+  <button class="weather-demo-btn" data-mode="sunny"></button>
+</div>
+<div id="shop-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-2 transition-all"></div><div id="shop-status-dot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></div><div id="shop-status-text">เปิดให้บริการอยู่ • เปิดทุกวัน</div>
+<div id="tab-kasalong-photos"></div><div id="tab-kasalong-map"></div>
+<div id="kasalong-photos-view"></div><div id="kasalong-map-view"></div>
+<script src="js/main.js"></script>
+<div id="debug-log"><pre>[]</pre></div>
+<script>
+document.getElementById('debug-log').innerHTML = '<pre>' + JSON.stringify(window.errors, null, 2) + '</pre>';
+</script>
+
+
+</body></html>

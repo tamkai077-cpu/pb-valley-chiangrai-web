@@ -3,7 +3,6 @@
    Warm Cocoa, Amber Gold & Forest Mountain Tones
    Clean, Elegant, and Subtle Modern Interactions
    ============================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
   --font-main: 'Google Sans', 'Noto Sans Thai', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -116,51 +115,6 @@ button, input, textarea, select {
   display: none !important;
 }
 
-/* Classic Pulsing Play Button */
-.play-pulse-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #D4A373, #B08154);
-  color: #1F140E;
-  box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.7);
-  animation: pulse-ring 2s infinite cubic-bezier(0.45, 0, 0, 1);
-  transition: transform 0.25s ease, background 0.25s ease;
-  cursor: pointer;
-}
-
-.play-pulse-btn:hover {
-  transform: scale(1.08);
-  background: linear-gradient(135deg, #E9C46A, #D4A373);
-}
-
-@keyframes pulse-ring {
-  0% {
-    box-shadow: 0 0 0 0 rgba(212, 163, 115, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 18px rgba(212, 163, 115, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(212, 163, 115, 0);
-  }
-}
-
-/* Elegant Subtle Card Hover */
-.process-step-card {
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.process-step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px -5px rgba(74, 46, 32, 0.12);
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -174,12 +128,6 @@ button, input, textarea, select {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #B08154;
-}
-
-/* Modal Backdrop */
-.modal-backdrop {
-  background-color: rgba(18, 11, 8, 0.75);
-  backdrop-filter: blur(6px);
 }
 
 /* ==============================================================
