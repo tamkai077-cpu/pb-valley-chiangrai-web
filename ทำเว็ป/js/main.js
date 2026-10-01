@@ -431,4 +431,124 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 6. Real-time Open/Closed Shop Status (Daily 10:00 - 20:00) with i18n
+  let currentLang = localStorage.getItem('pbvalley_lang') || 'th';
+
+  function updateShopStatus() {
+    const badge = document.getElementById('shop-status-badge');
+    const dot = document.getElementById('shop-status-dot');
+    const text = document.getElementById('shop-status-text');
+
+    if (!badge || !dot || !text) return;
+
+    const now = new Date();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+
+    // Calculate Asia/Bangkok time (UTC+7)
+    try {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Bangkok',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false
+      }).formatToParts(now);
+
+      parts.forEach(p => {
+        if (p.type === 'hour') hour = parseInt(p.value, 10);
+        if (p.type === 'minute') minute = parseInt(p.value, 10);
+      });
+    } catch (e) {
+      // Fallback to local time
+    }
+
+    const currentMinutes = hour * 60 + minute;
+    const openMinutes = 10 * 60;   // 10:00 น.
+    const closeMinutes = 20 * 60;  // 20:00 น.
+
+    // Open from 10:00 up to 20:00 (closed before 10:00 and from 20:00 onwards)
+    const isOpen = currentMinutes >= openMinutes && currentMinutes < closeMinutes;
+
+    if (isOpen) {
+      badge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-2 transition-all';
+      dot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0';
+      text.textContent = (currentLang === 'en') ? 'Open Now • Daily' : 'เปิดให้บริการอยู่ • เปิดทุกวัน';
+    } else {
+      badge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-200 mb-2 transition-all';
+      dot.className = 'w-2 h-2 rounded-full bg-rose-500 shrink-0';
+      text.textContent = (currentLang === 'en') ? 'Closed Now • Daily' : 'ปิดให้บริการขณะนี้ • เปิดทุกวัน';
+    }
+  }
+
+  function initShopStatus() {
+    updateShopStatus();
+    setInterval(updateShopStatus, 30000);
+  }
+
+  initShopStatus();
+
+  // 7. Bilingual i18n System (TH / EN)
+  function setLanguage(lang) {
+    if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('pbvalley_lang', lang);
+
+    const dict = window.TRANSLATIONS[lang];
+
+    // Update document title
+    if (dict['doc.title']) {
+      document.title = dict['doc.title'];
+    }
+
+    // Update document language
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    // Update all elements with data-i18n-title
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      if (dict[key] !== undefined) {
+        el.setAttribute('title', dict[key]);
+      }
+    });
+
+    // Update switcher buttons UI
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const btnLang = btn.getAttribute('data-lang');
+      if (btnLang === lang) {
+        btn.className = 'lang-btn px-2.5 py-1 rounded-full text-xs font-bold transition-all text-white bg-gold-600 shadow-sm';
+      } else {
+        btn.className = 'lang-btn px-2.5 py-1 rounded-full text-xs font-semibold transition-all text-stone-400 hover:text-white';
+      }
+    });
+
+    // Re-check shop status with new language
+    updateShopStatus();
+  }
+
+  // Bind language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetLang = btn.getAttribute('data-lang');
+      if (targetLang) {
+        setLanguage(targetLang);
+      }
+    });
+  });
+
+  // Initialize saved or default language
+  if (currentLang && currentLang !== 'th') {
+    setLanguage(currentLang);
+  }
 });
+
+
