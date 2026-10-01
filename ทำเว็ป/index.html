@@ -1138,7 +1138,7 @@
             </div>
             <div id="shop-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-2 transition-all">
               <span id="shop-status-dot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-              <span id="shop-status-text">เปิดให้บริการอยู่ • เปิดทุกวัน</span>
+              <span id="shop-status-text">เปิดให้บริการอยู่</span>
             </div>
             <h3 class="font-bold text-cocoa-900 text-base sm:text-lg mb-2 group-hover:text-forest-700 transition-colors" data-i18n="card2.title">
               เวลาเปิดให้บริการ
@@ -1223,25 +1223,138 @@
       <div class="max-w-5xl mx-auto bg-white rounded-3xl p-4 sm:p-7 border border-stone-200 shadow-md overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           
-          <!-- Map Iframe Container (7 cols on lg) -->
-          <div class="lg:col-span-7 relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-inner border border-stone-200 bg-stone-100">
-            <iframe 
-              title="แผนที่ PB Valley เชียงราย"
-              class="w-full h-full border-0" 
-              src="https://maps.google.com/maps?q=20.0886563,99.9795729&hl=th&z=15&output=embed" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen>
-            </iframe>
+          <!-- Media Showcase Column (7 cols on lg) -->
+          <div class="lg:col-span-7 flex flex-col justify-between">
             
-            <!-- Quick badge on map -->
-            <a href="https://www.google.com/maps/place/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B2%E0%B8%AA%E0%B8%B0%E0%B8%A5%E0%B8%AD%E0%B8%87+%E0%B9%84%E0%B8%A3%E0%B9%88%E0%B8%9E%E0%B8%B5%E0%B8%9A%E0%B8%B5+%E0%B8%A7%E0%B8%B1%E0%B8%A5%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A2%E0%B9%8C/@20.0876507,99.9756585,818m/data=!3m1!1e3!4m10!1m2!2m1!1zcGIgdmFsbGV5IOC5gOC4iuC4teC4ouC4h-C4o-C4suC4og!3m6!1s0x30d6548edbd35715:0xdb61e2f759f975ac!8m2!3d20.0886563!4d99.9795729!15sCiJwYiB2YWxsZXkg4LmA4LiK4Li14Lii4LiH4Lij4Liy4LiiWiQiInBiIHZhbGxleSDguYDguIrguLXguKLguIfguKPguLLguKKSAQ90aGFpX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnBXUzFGVVFrbGhhMmh0WVVWYWMxZHFhRTVPTUZaRlkyeEtiMU5HUlJBQuABAPoBBAgAEDg!16s%2Fg%2F11bxc74m3d?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="absolute bottom-3 right-3 bg-white/95 hover:bg-white text-cocoa-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md border border-stone-200 flex items-center gap-1.5 transition-all">
-              <i class="fa-solid fa-arrow-up-right-from-square text-gold-600 text-[11px]"></i>
-              <span data-i18n="map.full_map_btn">ดูแผนที่ขนาดเต็ม</span>
-            </a>
+            <!-- View Selector Tabs & Hint -->
+            <div class="flex items-center justify-between mb-3 px-0.5">
+              <div class="inline-flex p-1 bg-stone-100 rounded-xl border border-stone-200/80 text-xs">
+                <button type="button" id="tab-kasalong-photos" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-bold text-white bg-gold-600 shadow-sm" aria-label="View Kasalong Photos">
+                  <i class="fa-solid fa-images text-[11px]"></i>
+                  <span data-i18n="map.tab_photos">ภาพบรรยากาศร้านกาสะลอง</span>
+                  <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-white/20 text-white font-bold ml-0.5">6</span>
+                </button>
+                <button type="button" id="tab-kasalong-map" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-semibold text-stone-500 hover:text-cocoa-900" aria-label="View Google Map">
+                  <i class="fa-solid fa-map-location-dot text-[11px]"></i>
+                  <span data-i18n="map.tab_map">แผนที่ Google Maps</span>
+                </button>
+              </div>
+
+              <span class="text-[11px] text-stone-400 hidden sm:inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-arrows-left-right text-gold-600"></i>
+                <span data-i18n="map.slide_hint">เลื่อนชมภาพ</span>
+              </span>
+            </div>
+
+            <!-- View 1: Kasalong Photos Carousel Container -->
+            <div id="kasalong-photos-view" class="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-inner bg-cocoa-950 group select-none border border-stone-200">
+              
+              <!-- 6 Image Slides -->
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-100 z-10">
+                <img src="img/Kasalong/0.jpg" alt="ไร่ พีบี วัลเล่ย์ เชียงราย" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">PB Valley Chiangrai Farm</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo0_title">ป้ายต้อนรับ ไร่ พีบี วัลเล่ย์ เชียงราย</p>
+                </div>
+              </div>
+
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
+                <img src="img/Kasalong/1.jpg" alt="ประติมากรรมนกเงือกสีทองริมทะเลสาบ" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">Lakeside Landmark</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo1_title">ประติมากรรมนกเงือกสีทองริมทะเลสาบ</p>
+                </div>
+              </div>
+
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
+                <img src="img/Kasalong/3.jpg" alt="ทัศนียภาพทะเลสาบ สะพานไม้ และทุ่งดอกไม้" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">Scenic Lake &amp; Gardens</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo2_title">วิวทะเลสาบ สะพานไม้ และทุ่งดอกไม้</p>
+                </div>
+              </div>
+
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
+                <img src="img/Kasalong/4.jpg" alt="จิบเครื่องดื่มและอาหารริมระเบียงทะเลสาบ" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">Lakeside Dining</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo3_title">จิบเครื่องดื่มและอาหารริมระเบียงทะเลสาบ</p>
+                </div>
+              </div>
+
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
+                <img src="img/Kasalong/12.jpg" alt="กิจกรรมพายเรือคายัคในทะเลสาบ" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">Lake Activities</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo4_title">กิจกรรมพายเรือคายัคในทะเลสาบ</p>
+                </div>
+              </div>
+
+              <div class="kasalong-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
+                <img src="img/Kasalong/13.jpg" alt="บรรยากาศแสงไฟริมทะเลสาบยามค่ำคืน" class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-black/85 via-black/45 to-transparent text-white">
+                  <span class="text-[10px] uppercase tracking-wider text-gold-300 font-semibold block">Romantic Twilight</span>
+                  <p class="text-xs sm:text-sm font-bold" data-i18n="map.photo5_title">บรรยากาศแสงไฟริมทะเลสาบยามค่ำคืน</p>
+                </div>
+              </div>
+
+              <!-- Slide Counter Badge -->
+              <div class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-semibold border border-white/20 shadow-md">
+                <span id="kasalong-slide-counter">1 / 6</span>
+              </div>
+
+              <!-- Prev / Next Arrows -->
+              <button type="button" id="kasalong-prev-btn" class="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/50 hover:bg-gold-600 text-white flex items-center justify-center backdrop-blur-sm transition-all border border-white/20 shadow-md" aria-label="Previous Photo">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button type="button" id="kasalong-next-btn" class="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/50 hover:bg-gold-600 text-white flex items-center justify-center backdrop-blur-sm transition-all border border-white/20 shadow-md" aria-label="Next Photo">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+
+            <!-- View 2: Google Map Container (hidden by default) -->
+            <div id="kasalong-map-view" class="hidden relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-inner border border-stone-200 bg-stone-100">
+              <iframe 
+                title="แผนที่ PB Valley เชียงราย"
+                class="w-full h-full border-0" 
+                src="https://maps.google.com/maps?q=20.0886563,99.9795729&hl=th&z=15&output=embed" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+              
+              <!-- Quick badge on map -->
+              <a href="https://www.google.com/maps/place/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%B2%E0%B8%AA%E0%B8%B0%E0%B8%A5%E0%B8%AD%E0%B8%87+%E0%B9%84%E0%B8%A3%E0%B9%88%E0%B8%9E%E0%B8%B5%E0%B8%9A%E0%B8%B5+%E0%B8%A7%E0%B8%B1%E0%B8%A5%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A2%E0%B9%8C/@20.0876507,99.9756585,818m/data=!3m1!1e3!4m10!1m2!2m1!1zcGIgdmFsbGV5IOC5gOC4iuC4teC4ouC4h-C4o-C4suC4og!3m6!1s0x30d6548edbd35715:0xdb61e2f759f975ac!8m2!3d20.0886563!4d99.9795729!15sCiJwYiB2YWxsZXkg4LmA4LiK4Li14Lii4LiH4Lij4Liy4LiiWiQiInBiIHZhbGxleSDguYDguIrguLXguKLguIfguKPguLLguKKSAQ90aGFpX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnBXUzFGVVFrbGhhMmh0WVVWYWMxZHFhRTVPTUZaRlkyeEtiMU5HUlJBQuABAPoBBAgAEDg!16s%2Fg%2F11bxc74m3d?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="absolute bottom-3 right-3 bg-white/95 hover:bg-white text-cocoa-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md border border-stone-200 flex items-center gap-1.5 transition-all">
+                <i class="fa-solid fa-arrow-up-right-from-square text-gold-600 text-[11px]"></i>
+                <span data-i18n="map.full_map_btn">ดูแผนที่ขนาดเต็ม</span>
+              </a>
+            </div>
+
+            <!-- Thumbnail Navigation Strip (6 Photos) -->
+            <div class="grid grid-cols-6 gap-2 mt-3" id="kasalong-thumbnails">
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-gold-500 shadow-sm transition-all group scale-[1.02]" data-index="0" title="ป้ายต้อนรับ ไร่ พีบี วัลเล่ย์">
+                <img src="img/Kasalong/0.jpg" alt="ป้ายไร่" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group" data-index="1" title="นกเงือกสีทองริมน้ำ">
+                <img src="img/Kasalong/1.jpg" alt="นกเงือกสีทอง" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group" data-index="2" title="วิวทะเลสาบและดอกไม้">
+                <img src="img/Kasalong/3.jpg" alt="ทะเลสาบและดอกไม้" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group" data-index="3" title="เครื่องดื่มริมทะเลสาบ">
+                <img src="img/Kasalong/4.jpg" alt="เครื่องดื่มริมน้ำ" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group" data-index="4" title="พายเรือคายัค">
+                <img src="img/Kasalong/12.jpg" alt="พายเรือคายัค" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+              <button type="button" class="kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group" data-index="5" title="วิวแสงไฟค่ำคืน">
+                <img src="img/Kasalong/13.jpg" alt="วิวค่ำคืน" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+              </button>
+            </div>
+
           </div>
 
           <!-- Destination Highlights & Directions (5 cols on lg) -->
@@ -1275,8 +1388,11 @@
                     <i class="fa-solid fa-mug-hot"></i>
                   </div>
                   <div>
-                    <h5 class="text-xs font-bold text-cocoa-900" data-i18n="map.f2_title">ร้านอาหารกาสะลอง &amp; โกโก้คาเฟ่</h5>
-                    <p class="text-[11px] text-stone-500" data-i18n="map.f2_desc">อาหารไทย-ฟิวชั่น เมนูโกโก้สดแท้ และของหวานคราฟต์</p>
+                    <div class="flex items-center gap-2">
+                      <h5 class="text-xs font-bold text-cocoa-900" data-i18n="map.f2_title">ร้านอาหารกาสะลอง &amp; โกโก้คาเฟ่</h5>
+                      <span class="text-[10px] font-semibold text-gold-700 bg-gold-50 border border-gold-200/80 px-1.5 py-0.5 rounded-full" data-i18n="map.view_photos_badge">ชม 6 ภาพบรรยากาศจริง</span>
+                    </div>
+                    <p class="text-[11px] text-stone-500 mt-0.5" data-i18n="map.f2_desc">อาหารไทย-ฟิวชั่น เมนูโกโก้สดแท้ และของหวานคราฟต์</p>
                   </div>
                 </div>
 

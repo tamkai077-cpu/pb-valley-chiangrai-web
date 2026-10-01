@@ -549,6 +549,157 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentLang && currentLang !== 'th') {
     setLanguage(currentLang);
   }
+
+  // 8. Kasalong Showcase & Google Map Tabs
+  function initKasalongShowcase() {
+    const tabPhotos = document.getElementById('tab-kasalong-photos');
+    const tabMap = document.getElementById('tab-kasalong-map');
+    const viewPhotos = document.getElementById('kasalong-photos-view');
+    const viewMap = document.getElementById('kasalong-map-view');
+    const slides = document.querySelectorAll('.kasalong-slide');
+    const thumbs = document.querySelectorAll('.kasalong-thumb-btn');
+    const counter = document.getElementById('kasalong-slide-counter');
+    const prevBtn = document.getElementById('kasalong-prev-btn');
+    const nextBtn = document.getElementById('kasalong-next-btn');
+
+    if (!tabPhotos || !tabMap || !viewPhotos || !viewMap) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoSlideTimer = null;
+
+    function switchTab(target) {
+      if (target === 'photos') {
+        viewPhotos.classList.remove('hidden');
+        viewMap.classList.add('hidden');
+        tabPhotos.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-bold text-white bg-gold-600 shadow-sm';
+        tabMap.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-semibold text-stone-500 hover:text-cocoa-900';
+      } else {
+        viewPhotos.classList.add('hidden');
+        viewMap.classList.remove('hidden');
+        tabMap.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-bold text-white bg-gold-600 shadow-sm';
+        tabPhotos.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all font-semibold text-stone-500 hover:text-cocoa-900';
+        stopAutoSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+
+      // Update slide frames
+      slides.forEach((slide, i) => {
+        if (i === currentSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none');
+          slide.classList.add('opacity-100', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      // Update counter
+      if (counter) {
+        counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      }
+
+      // Update thumbnails
+      thumbs.forEach((thumb, i) => {
+        if (i === currentSlide) {
+          thumb.className = 'kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-gold-500 shadow-sm transition-all group scale-[1.02] opacity-100';
+        } else {
+          thumb.className = 'kasalong-thumb-btn relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent hover:border-gold-300 opacity-70 hover:opacity-100 shadow-sm transition-all group scale-100';
+        }
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(() => {
+        if (!viewPhotos.classList.contains('hidden')) {
+          goToSlide(currentSlide + 1);
+        }
+      }, 5000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    }
+
+    // Tabs click
+    tabPhotos.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab('photos');
+      startAutoSlide();
+    });
+
+    tabMap.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab('map');
+    });
+
+    // Arrow navigation
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+      });
+    }
+
+    // Thumbnails click
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+        switchTab('photos');
+        goToSlide(idx);
+        startAutoSlide();
+      });
+    });
+
+    // Pause on hover
+    viewPhotos.addEventListener('mouseenter', stopAutoSlide);
+    viewPhotos.addEventListener('mouseleave', startAutoSlide);
+
+    // Touch Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewPhotos.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoSlide();
+    }, { passive: true });
+
+    viewPhotos.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+      startAutoSlide();
+    }, { passive: true });
+
+    // Initialize
+    goToSlide(0);
+    startAutoSlide();
+  }
+
+  initKasalongShowcase();
 });
 
 

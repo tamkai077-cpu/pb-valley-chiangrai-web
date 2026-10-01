@@ -127,7 +127,17 @@ window.TRANSLATIONS = {
     "card3.phone_btn": "โทรเลย",
     "card3.fb_btn": "เปิดเพจ",
 
-    // Map Showcase
+    // Map Showcase & Kasalong Photos
+    "map.tab_photos": "ภาพบรรยากาศร้านกาสะลอง",
+    "map.tab_map": "แผนที่ Google Maps",
+    "map.slide_hint": "เลื่อนชมภาพ",
+    "map.view_photos_badge": "ชม 6 ภาพบรรยากาศจริง",
+    "map.photo0_title": "ป้ายต้อนรับ ไร่ พีบี วัลเล่ย์ เชียงราย",
+    "map.photo1_title": "ประติมากรรมนกเงือกสีทองริมทะเลสาบ",
+    "map.photo2_title": "วิวทะเลสาบ สะพานไม้ และทุ่งดอกไม้",
+    "map.photo3_title": "จิบเครื่องดื่มและอาหารริมระเบียงทะเลสาบ",
+    "map.photo4_title": "กิจกรรมพายเรือคายัคในทะเลสาบ",
+    "map.photo5_title": "บรรยากาศแสงไฟริมทะเลสาบยามค่ำคืน",
     "map.full_map_btn": "ดูแผนที่ขนาดเต็ม",
     "map.subhead": "Destination Highlights",
     "map.headline": "จุดหมายปลายทางแห่งการพักผ่อน",
@@ -269,7 +279,17 @@ window.TRANSLATIONS = {
     "card3.phone_btn": "Call Now",
     "card3.fb_btn": "Visit Page",
 
-    // Map Showcase
+    // Map Showcase & Kasalong Photos
+    "map.tab_photos": "Kasalong Lakeside Photos",
+    "map.tab_map": "Google Maps",
+    "map.slide_hint": "Swipe to explore",
+    "map.view_photos_badge": "6 Real Atmosphere Photos",
+    "map.photo0_title": "Welcome Sign - PB Valley Chiangrai Farm",
+    "map.photo1_title": "Golden Hornbill Lakeside Landmark",
+    "map.photo2_title": "Scenic Lake Panorama & Blooming Gardens",
+    "map.photo3_title": "Lakeside Dining & Refreshments",
+    "map.photo4_title": "Lake Kayaking Adventure",
+    "map.photo5_title": "Romantic Lakeside Evening Illumination",
     "map.full_map_btn": "View Full Map",
     "map.subhead": "Destination Highlights",
     "map.headline": "Your Ultimate Highland Getaway",
