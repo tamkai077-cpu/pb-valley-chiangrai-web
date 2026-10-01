@@ -150,6 +150,19 @@ window.TRANSLATIONS = {
     "map.f3_desc": "รองรับได้ทั้งรถยนต์ส่วนตัว รถตู้ และรถบัสนำเที่ยว",
     "map.gps_btn": "เริ่มการนำทาง GPS ไปยังไร่ พีบี วัลเล่ย์",
 
+    // Weather Widget
+    "weather.badge": "สภาพอากาศที่ไร่ตอนนี้",
+    "weather.live": "สดจาก GPS",
+    "weather.humidity": "ความชื้น",
+    "weather.wind": "ความเร็วลม",
+    "weather.hero_label": "ไร่เชียงราย",
+    "weather.demo_label": "เอฟเฟกต์หน้าปก:",
+    "weather.demo_sunny": "☀️ แดดออก/ใบไม้",
+    "weather.demo_rainy": "🌧️ ฝนตก",
+    "weather.demo_misty": "🌫️ หมอกลง",
+    "weather.demo_night": "🌙 หิ่งห้อย",
+    "weather.demo_auto": "⚡ สดตามจริง",
+
     // Footer
     "footer.company": "บริษัท พีบี วัลเล่ย์ เชียงราย จำกัด",
     "footer.rights": "© 2026 PB Valley Chiang Rai. All rights reserved."
@@ -301,6 +314,19 @@ window.TRANSLATIONS = {
     "map.f3_title": "Spacious & Secure Parking",
     "map.f3_desc": "Ample parking area accommodating private cars, vans, and tour coaches",
     "map.gps_btn": "Start GPS Navigation to PB Valley",
+
+    // Weather Widget
+    "weather.badge": "Live Farm Weather",
+    "weather.live": "Live GPS",
+    "weather.humidity": "Humidity",
+    "weather.wind": "Wind",
+    "weather.hero_label": "Chiang Rai Farm",
+    "weather.demo_label": "Hero Atmosphere:",
+    "weather.demo_sunny": "☀️ Sunny / Leaves",
+    "weather.demo_rainy": "🌧️ Rain",
+    "weather.demo_misty": "🌫️ Mist",
+    "weather.demo_night": "🌙 Fireflies",
+    "weather.demo_auto": "⚡ Live GPS",
 
     // Footer
     "footer.company": "PB Valley Chiang Rai Co., Ltd.",

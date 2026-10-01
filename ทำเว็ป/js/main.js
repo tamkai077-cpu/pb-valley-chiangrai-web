@@ -532,6 +532,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Re-check shop status with new language
     updateShopStatus();
+
+    // Re-render real-time farm weather with new language
+    if (typeof renderWeatherUI === 'function') {
+      renderWeatherUI();
+    }
   }
 
   // Bind language buttons
@@ -700,6 +705,270 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initKasalongShowcase();
+
+  // 9. Real-Time Farm Weather & Dynamic Atmosphere System (GPS: Lat 20.0886, Lon 99.9795)
+  const WMO_MAP = {
+    0: { icon: 'fa-sun text-amber-500', th: 'ฟ้าโปร่ง แดดสดใส', en: 'Clear & Sunny' },
+    1: { icon: 'fa-cloud-sun text-amber-400', th: 'ท้องฟ้าแจ่มใส เมฆบางส่วน', en: 'Mainly Clear' },
+    2: { icon: 'fa-cloud-sun text-amber-400', th: 'มีเมฆเป็นบางส่วน ลมสบาย', en: 'Partly Cloudy' },
+    3: { icon: 'fa-cloud text-stone-400', th: 'มีเมฆมาก อากาศร่มรื่น', en: 'Overcast' },
+    45: { icon: 'fa-smog text-stone-400', th: 'มีหมอกยามเช้า อากาศเย็น', en: 'Morning Mist' },
+    48: { icon: 'fa-smog text-stone-400', th: 'หมอกหนา อากาศเย็นสดชื่น', en: 'Dense Fog' },
+    51: { icon: 'fa-cloud-rain text-blue-400', th: 'ละอองฝนโปรยปราย', en: 'Light Drizzle' },
+    53: { icon: 'fa-cloud-rain text-blue-400', th: 'ฝนตกปรอยๆ ชุ่มฉ่ำ', en: 'Moderate Drizzle' },
+    55: { icon: 'fa-cloud-rain text-blue-500', th: 'ฝนตกพรำๆ อากาศสดชื่น', en: 'Dense Drizzle' },
+    61: { icon: 'fa-cloud-showers-heavy text-blue-500', th: 'ฝนตกเบาบาง', en: 'Slight Rain' },
+    63: { icon: 'fa-cloud-showers-heavy text-blue-500', th: 'ฝนตกชุ่มฉ่ำ', en: 'Moderate Rain' },
+    65: { icon: 'fa-cloud-showers-heavy text-blue-600', th: 'ฝนตกหนัก', en: 'Heavy Rain' },
+    80: { icon: 'fa-cloud-sun-rain text-blue-400', th: 'ฝนโปรยสลับแดด', en: 'Passing Showers' },
+    81: { icon: 'fa-cloud-showers-heavy text-blue-500', th: 'มีฝนเป็นระยะ', en: 'Intermittent Rain' },
+    95: { icon: 'fa-bolt text-amber-500', th: 'มีฝนฟ้าคะนอง', en: 'Thunderstorm' }
+  };
+
+  let liveGpsWeather = {
+    temp: 31,
+    humidity: 62,
+    wind: 5.2,
+    code: 0
+  };
+
+  let latestWeather = { ...liveGpsWeather };
+  let activeAtmosphereMode = 'auto'; // 'auto', 'sunny', 'rainy', 'misty', 'night'
+  let currentRenderedAtmosphere = '';
+
+  function generateParticlesHTML(type) {
+    if (type === 'rainy') {
+      let streaks = '';
+      for (let i = 0; i < 22; i++) {
+        const left = (i * 4.5 + (i % 3) * 1.2).toFixed(1);
+        const dur = (0.85 + (i % 5) * 0.15).toFixed(2);
+        const delay = ((i * 0.13) % 2).toFixed(2);
+        const op = (0.45 + (i % 4) * 0.12).toFixed(2);
+        streaks += `<div class="rain-streak" style="left: ${left}%; --rain-opacity: ${op}; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+      }
+      streaks += `
+        <div class="falling-leaf leaf-anim-1 text-emerald-400" style="left: 15%; width: 17px; height: 24px; --leaf-duration: 12s; --leaf-opacity: 0.65; animation-delay: 1s;">
+          <svg viewBox="0 0 24 38" fill="none" class="w-full h-full"><path d="M12 2 C18 10 22 24 12 36 C2 24 6 10 12 2Z" fill="currentColor"/></svg>
+        </div>
+        <div class="falling-leaf leaf-anim-2 text-teal-400" style="left: 78%; width: 19px; height: 26px; --leaf-duration: 11s; --leaf-opacity: 0.6; animation-delay: 4s;">
+          <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/></svg>
+        </div>
+      `;
+      return streaks;
+    }
+
+    if (type === 'night') {
+      let fireflies = '';
+      for (let i = 0; i < 14; i++) {
+        const left = (i * 7 + 3).toFixed(1);
+        const top = (15 + (i * 5.5) % 65).toFixed(1);
+        const size = (4 + (i % 3)).toFixed(0);
+        const dur = (5 + (i % 4) * 1.2).toFixed(1);
+        const delay = ((i * 0.35) % 4).toFixed(1);
+        fireflies += `<div class="firefly-particle" style="left: ${left}%; top: ${top}%; width: ${size}px; height: ${size}px; animation-duration: ${dur}s; animation-delay: ${delay}s;"></div>`;
+      }
+      return fireflies;
+    }
+
+    if (type === 'misty') {
+      let mist = '';
+      const positions = [
+        { left: '6%', top: '22%', size: '280px', dur: '18s', delay: '0s' },
+        { left: '32%', top: '50%', size: '330px', dur: '22s', delay: '2s' },
+        { left: '58%', top: '25%', size: '290px', dur: '20s', delay: '4s' },
+        { left: '80%', top: '60%', size: '320px', dur: '24s', delay: '1s' }
+      ];
+      positions.forEach(p => {
+        mist += `<div class="mist-particle" style="left: ${p.left}; top: ${p.top}; width: ${p.size}; height: ${p.size}; animation-duration: ${p.dur}; animation-delay: ${p.delay};"></div>`;
+      });
+      mist += `
+        <div class="falling-leaf leaf-anim-2 text-emerald-500/60" style="left: 20%; width: 18px; height: 25px; --leaf-duration: 22s; --leaf-opacity: 0.5; animation-delay: 2s;">
+          <svg viewBox="0 0 24 38" fill="none" class="w-full h-full"><path d="M12 2 C18 10 22 24 12 36 C2 24 6 10 12 2Z" fill="currentColor"/></svg>
+        </div>
+        <div class="falling-leaf leaf-anim-3 text-stone-400" style="left: 55%; width: 20px; height: 28px; --leaf-duration: 24s; --leaf-opacity: 0.45; animation-delay: 6s;">
+          <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/></svg>
+        </div>
+      `;
+      return mist;
+    }
+
+    // Default 'sunny' / leaves
+    return `
+      <div class="falling-leaf leaf-anim-1 text-gold-400" style="left: 8%; width: 20px; height: 26px; --leaf-duration: 14s; --leaf-opacity: 0.65; animation-delay: 0s;">
+        <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/><path d="M14 5 Q14 18 14 31" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" stroke-linecap="round"/><path d="M14 12 Q19 14 22 18 M14 18 Q19 20 21 25 M14 13 Q9 15 6 18 M14 19 Q9 21 7 25" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-2 text-emerald-500/65" style="left: 22%; width: 17px; height: 24px; --leaf-duration: 16s; --leaf-opacity: 0.55; animation-delay: 4.5s;">
+        <svg viewBox="0 0 24 38" fill="none" class="w-full h-full"><path d="M12 2 C18 10 22 24 12 36 C2 24 6 10 12 2Z" fill="currentColor"/><path d="M12 6 Q12 20 12 33" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-3 text-amber-300" style="left: 35%; width: 22px; height: 29px; --leaf-duration: 15s; --leaf-opacity: 0.6; animation-delay: 8s;">
+        <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/><path d="M14 5 Q14 18 14 31" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" stroke-linecap="round"/><path d="M14 12 Q19 14 22 18 M14 18 Q19 20 21 25 M14 13 Q9 15 6 18 M14 19 Q9 21 7 25" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-1 text-[#C48E58]" style="left: 48%; width: 18px; height: 24px; --leaf-duration: 17s; --leaf-opacity: 0.5; animation-delay: 2s;">
+        <svg viewBox="0 0 24 38" fill="none" class="w-full h-full"><path d="M12 2 C18 10 22 24 12 36 C2 24 6 10 12 2Z" fill="currentColor"/><path d="M12 6 Q12 20 12 33" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-2 text-gold-300" style="left: 63%; width: 21px; height: 28px; --leaf-duration: 14.5s; --leaf-opacity: 0.6; animation-delay: 10s;">
+        <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/><path d="M14 5 Q14 18 14 31" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" stroke-linecap="round"/><path d="M14 12 Q19 14 22 18 M14 18 Q19 20 21 25 M14 13 Q9 15 6 18 M14 19 Q9 21 7 25" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-3 text-emerald-500/60" style="left: 76%; width: 16px; height: 23px; --leaf-duration: 16.5s; --leaf-opacity: 0.55; animation-delay: 5.5s;">
+        <svg viewBox="0 0 24 38" fill="none" class="w-full h-full"><path d="M12 2 C18 10 22 24 12 36 C2 24 6 10 12 2Z" fill="currentColor"/><path d="M12 6 Q12 20 12 33" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="falling-leaf leaf-anim-1 text-gold-400" style="left: 89%; width: 22px; height: 29px; --leaf-duration: 13.5s; --leaf-opacity: 0.65; animation-delay: 1.2s;">
+        <svg viewBox="0 0 28 36" fill="none" class="w-full h-full"><path d="M14 2 C22 8 26 22 14 34 C2 22 6 8 14 2Z" fill="currentColor"/><path d="M14 5 Q14 18 14 31" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" stroke-linecap="round"/><path d="M14 12 Q19 14 22 18 M14 18 Q19 20 21 25 M14 13 Q9 15 6 18 M14 19 Q9 21 7 25" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" stroke-linecap="round"/></svg>
+      </div>
+    `;
+  }
+
+  function applyAtmosphere(type) {
+    if (currentRenderedAtmosphere === type) return;
+    currentRenderedAtmosphere = type;
+    const container = document.getElementById('hero-weather-particles');
+    if (container) {
+      container.innerHTML = generateParticlesHTML(type);
+    }
+  }
+
+  function determineAutoAtmosphere() {
+    if (activeAtmosphereMode !== 'auto') {
+      applyAtmosphere(activeAtmosphereMode);
+      return;
+    }
+
+    const code = latestWeather.code;
+    const now = new Date();
+    const hour = now.getHours();
+    const isNight = (hour >= 18 || hour < 6);
+
+    if ((code >= 51 && code <= 65) || (code >= 80 && code <= 82) || code >= 95) {
+      applyAtmosphere('rainy');
+    } else if (code === 45 || code === 48) {
+      applyAtmosphere('misty');
+    } else if (isNight) {
+      applyAtmosphere('night');
+    } else {
+      applyAtmosphere('sunny');
+    }
+  }
+
+  function renderWeatherUI() {
+    const isEn = (currentLang === 'en');
+    const weatherInfo = WMO_MAP[latestWeather.code] || {
+      icon: 'fa-cloud-sun text-amber-400',
+      th: 'อากาศสบายริมทะเลสาบ',
+      en: 'Pleasant Lakeside Weather'
+    };
+
+    const descText = isEn ? weatherInfo.en : weatherInfo.th;
+
+    // 1. Update Hero Pill
+    const heroIcon = document.getElementById('hero-weather-icon');
+    const heroText = document.getElementById('hero-weather-text');
+
+    if (heroIcon) {
+      heroIcon.className = `fa-solid ${weatherInfo.icon} text-xs transition-transform group-hover:rotate-45`;
+    }
+    if (heroText) {
+      const farmLabel = isEn ? 'Chiang Rai Farm' : 'ไร่เชียงราย';
+      heroText.innerHTML = `${farmLabel} <strong id="hero-weather-temp" class="text-gold-300 font-bold">${latestWeather.temp}°C</strong> • <span id="hero-weather-desc">${descText}</span>`;
+    }
+
+    // 2. Update Destination Widget
+    const mainIcon = document.getElementById('weather-icon-main');
+    const mainTemp = document.getElementById('weather-temp-main');
+    const mainDesc = document.getElementById('weather-desc-main');
+    const humidityVal = document.getElementById('weather-humidity-val');
+    const windVal = document.getElementById('weather-wind-val');
+
+    if (mainIcon) {
+      mainIcon.className = `fa-solid ${weatherInfo.icon} animate-pulse`;
+    }
+    if (mainTemp) {
+      mainTemp.textContent = `${latestWeather.temp}°C`;
+    }
+    if (mainDesc) {
+      mainDesc.textContent = descText;
+    }
+    if (humidityVal) {
+      humidityVal.textContent = `${latestWeather.humidity}%`;
+    }
+    if (windVal) {
+      windVal.textContent = `${latestWeather.wind} km/h`;
+    }
+
+    // 3. Update Atmosphere particles
+    determineAutoAtmosphere();
+  }
+
+  async function fetchFarmWeather() {
+    try {
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=20.0886&longitude=99.9795&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FBangkok';
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Open-Meteo response not ok');
+      const data = await res.json();
+      if (data && data.current) {
+        liveGpsWeather = {
+          temp: Math.round(data.current.temperature_2m),
+          humidity: Math.round(data.current.relative_humidity_2m),
+          wind: data.current.wind_speed_10m,
+          code: data.current.weather_code
+        };
+        if (activeAtmosphereMode === 'auto') {
+          latestWeather = { ...liveGpsWeather };
+          renderWeatherUI();
+        }
+      }
+    } catch (e) {
+      renderWeatherUI();
+    }
+  }
+
+  function initFarmWeather() {
+    renderWeatherUI();
+    fetchFarmWeather();
+    setInterval(fetchFarmWeather, 600000);
+
+    // Weather Demo Switcher Buttons
+    document.querySelectorAll('.weather-demo-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const mode = btn.getAttribute('data-mode');
+        activeAtmosphereMode = mode;
+
+        // Update button visual styles
+        document.querySelectorAll('.weather-demo-btn').forEach(b => {
+          if (b === btn) {
+            b.className = 'weather-demo-btn px-2 py-0.5 rounded-md bg-white border border-gold-400 text-gold-900 font-bold text-[10px] shadow-xs transition-all';
+          } else {
+            b.className = 'weather-demo-btn px-2 py-0.5 rounded-md bg-white/70 hover:bg-white border border-stone-200 hover:border-gold-300 text-stone-600 text-[10px] font-medium transition-all';
+          }
+        });
+
+        if (mode === 'sunny') {
+          latestWeather = { temp: 31, humidity: 62, wind: 5.2, code: 0 };
+          renderWeatherUI();
+          applyAtmosphere('sunny');
+        } else if (mode === 'rainy') {
+          latestWeather = { temp: 24, humidity: 88, wind: 14.5, code: 63 };
+          renderWeatherUI();
+          applyAtmosphere('rainy');
+        } else if (mode === 'misty') {
+          latestWeather = { temp: 21, humidity: 92, wind: 3.8, code: 45 };
+          renderWeatherUI();
+          applyAtmosphere('misty');
+        } else if (mode === 'night') {
+          latestWeather = { temp: 23, humidity: 75, wind: 4.1, code: 1 };
+          renderWeatherUI();
+          applyAtmosphere('night');
+        } else {
+          // 'auto' -> restore real GPS weather
+          latestWeather = { ...liveGpsWeather };
+          renderWeatherUI();
+          determineAutoAtmosphere();
+        }
+      });
+    });
+  }
+
+  initFarmWeather();
 });
 
 
