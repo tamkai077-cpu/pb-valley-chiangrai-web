@@ -423,77 +423,125 @@
               <!-- Carousel Main Frame -->
               <div class="relative w-full pb-[60%] sm:pb-[56.25%] overflow-hidden rounded-xl bg-cocoa-950 shadow-md group select-none">
                 
-                <!-- Slides Container (9 Slides) -->
+                <!-- Slides Container (15 Slides: 1 Video + 14 Photos) -->
                 <div id="farm-carousel-slides" class="absolute inset-0">
                   
                   <!-- Slide 1: คลิปวิดีโอ (ขึ้นก่อนอันดับแรก) -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-100 z-10">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-100 z-10" data-title="คลิปวิดีโอแนะนำสวน">
                     <div id="video-player-2" class="w-full h-full bg-black">
                       <iframe src="https://youtube.com/shorts/GWmfNK9ZifI?si=cZw_UHKJcZ-JXDCz" class="w-full h-full" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                   </div>
 
                   <!-- Slide 2: ภาพมุมสูง 1 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-1.jpg" alt="ภาพมุมสูง สวนโกโก้ 1" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 1: ผืนดินและระบบนิเวศ">
+                    <img src="img/top view cocao/farm-1.jpg" alt="ภาพมุมสูง สวนโกโก้ 1" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
                       <span class="font-semibold text-gold-400">ภาพมุมสูง 1:</span> ผืนดินและแปลงโกโก้กลางไอหมอกเชียงราย
                     </div>
                   </div>
 
                   <!-- Slide 3: ภาพมุมสูง 2 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-2.jpg" alt="ภาพมุมสูง สวนโกโก้ 2" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 2: วนเกษตร Agroforestry">
+                    <img src="img/top view cocao/farm-2.jpg" alt="ภาพมุมสูง สวนโกโก้ 2" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
                       <span class="font-semibold text-gold-400">ภาพมุมสูง 2:</span> ความอุดมสมบูรณ์ของระบบนิเวศและทิวไม้ธรรมชาติ
                     </div>
                   </div>
 
                   <!-- Slide 4: ภาพมุมสูง 3 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-3.jpg" alt="ภาพมุมสูง สวนโกโก้ 3" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 3: ทิวไม้ธรรมชาติ">
+                    <img src="img/top view cocao/farm-3.jpg" alt="ภาพมุมสูง สวนโกโก้ 3" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
                       <span class="font-semibold text-gold-400">ภาพมุมสูง 3:</span> การบริหารจัดการแปลงปลูกแบบวนเกษตร (Agroforestry)
                     </div>
                   </div>
 
                   <!-- Slide 5: ภาพมุมสูง 4 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-4.jpg" alt="ภาพมุมสูง สวนโกโก้ 4" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 4: แปลงปลูก PB Valley">
+                    <img src="img/top view cocao/farm-4.jpg" alt="ภาพมุมสูง สวนโกโก้ 4" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
-                      <span class="font-semibold text-gold-400">ภาพมุมสูง 4:</span> ความเขียวขจีของต้นโกโก้ที่เติบโตสมบูรณ์
+                      <span class="font-semibold text-gold-400">ภาพมุมสูง 4:</span> ทัศนียภาพกว้างไกลของแปลงปลูก PB Valley เชียงราย
                     </div>
                   </div>
 
                   <!-- Slide 6: ภาพมุมสูง 5 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-5.jpg" alt="ภาพมุมสูง สวนโกโก้ 5" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 5: ทรงพุ่มโกโก้คุณภาพ">
+                    <img src="img/top view cocao/farm-5.jpg" alt="ภาพมุมสูง สวนโกโก้ 5" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
-                      <span class="font-semibold text-gold-400">ภาพมุมสูง 5:</span> ทัศนียภาพกว้างไกลของแปลงปลูก PB Valley เชียงราย
+                      <span class="font-semibold text-gold-400">ภาพมุมสูง 5:</span> ความสมบูรณ์ของใบและทรงพุ่มโกโก้คุณภาพ
                     </div>
                   </div>
 
                   <!-- Slide 7: ภาพมุมสูง 6 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-6.jpg" alt="ภาพมุมสูง สวนโกโก้ 6" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ภาพมุมสูง 6: แหล่งกำเนิดเมล็ดโกโก้คราฟต์">
+                    <img src="img/top view cocao/farm-6.jpg" alt="ภาพมุมสูง สวนโกโก้ 6" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
-                      <span class="font-semibold text-gold-400">ภาพมุมสูง 6:</span> ความสมบูรณ์ของใบและทรงพุ่มโกโก้คุณภาพ
+                      <span class="font-semibold text-gold-400">ภาพมุมสูง 6:</span> แหล่งกำเนิดเมล็ดโกโก้คราฟต์สู่ช็อกโกแลตพรีเมียม
                     </div>
                   </div>
 
-                  <!-- Slide 8: ภาพมุมสูง 7 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-7.jpg" alt="ภาพมุมสูง สวนโกโก้ 7" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <!-- Slide 8: ต้นโกโก้ 1 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ต้นโกโก้ 1: ผลดกสมบูรณ์">
+                    <img src="img/top view cocao/farm-7.jpg" alt="ต้นโกโก้ผลดกสมบูรณ์" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
-                      <span class="font-semibold text-gold-400">ภาพมุมสูง 7:</span> มุมมองธรรมชาติและแหล่งน้ำหล่อเลี้ยงสวน
+                      <span class="font-semibold text-gold-400">ต้นโกโก้ 1:</span> ต้นโกโก้ที่ติดผลดกสมบูรณ์ใต้ร่มเงาไม้ธรรมชาติ
                     </div>
                   </div>
 
-                  <!-- Slide 9: ภาพมุมสูง 8 -->
-                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none">
-                    <img src="img/top view cocao/top-view-8.jpg" alt="ภาพมุมสูง สวนโกโก้ 8" class="w-full h-full object-contain sm:object-cover bg-black">
+                  <!-- Slide 9: ผลโกโก้ 2 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 2: สีเหลืองทองพร้อมเก็บเกี่ยว">
+                    <img src="img/top view cocao/farm-8.jpg" alt="ผลโกโก้สุกสีเหลืองทอง" class="w-full h-full object-contain sm:object-cover bg-black">
                     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
-                      <span class="font-semibold text-gold-400">ภาพมุมสูง 8:</span> แหล่งกำเนิดเมล็ดโกโก้คราฟต์สู่ช็อกโกแลตพรีเมียม
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 2:</span> ผลโกโก้สุกสีเหลืองทอง คัดเก็บด้วยมือเฉพาะผลสมบูรณ์ที่สุด
+                    </div>
+                  </div>
+
+                  <!-- Slide 10: ต้นโกโก้ 3 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ต้นโกโก้ 3: ลำต้นติดผลหนาแน่น">
+                    <img src="img/top view cocao/farm-9.jpg" alt="ลำต้นโกโก้ติดผลหนาแน่น" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ต้นโกโก้ 3:</span> ผลผลิตโกโก้ดกหนาแน่นตามลำต้น สะท้อนความสมบูรณ์ของดินภูเขาไฟ
+                    </div>
+                  </div>
+
+                  <!-- Slide 11: ผลโกโก้ 4 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 4: กิ่งก้านแข็งแรง">
+                    <img src="img/top view cocao/farm-10.jpg" alt="ผลโกโก้ระยะเริ่มสุก" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 4:</span> ผลโกโก้ระยะเริ่มสุกบนกิ่งก้านแข็งแรง พันธุ์แท้คัดเกรดพิเศษ
+                    </div>
+                  </div>
+
+                  <!-- Slide 12: ผลโกโก้ 5 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 5: สีทองเอกลักษณ์เชียงราย">
+                    <img src="img/top view cocao/farm-11.jpg" alt="ผลโกโก้สีทองคุณภาพเยี่ยม" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 5:</span> ผลโกโก้สีทองคุณภาพเยี่ยม เอกลักษณ์ผลผลิต Single Origin เชียงราย
+                    </div>
+                  </div>
+
+                  <!-- Slide 13: ผลโกโก้ 6 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 6: ช่อผลโกโก้สด">
+                    <img src="img/top view cocao/farm-12.jpg" alt="ช่อผลโกโก้สด" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 6:</span> ช่อผลโกโก้สดเจริญเติบโตเต็มที่ สมบูรณ์ด้วยสารอาหารธรรมชาติ
+                    </div>
+                  </div>
+
+                  <!-- Slide 14: ผลโกโก้ 7 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 7: สดจากแปลงปลูก">
+                    <img src="img/top view cocao/farm-13.jpg" alt="ความสมบูรณ์ของผลผลิตสด" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 7:</span> ความสมบูรณ์ของผลผลิตสดจากแปลงปลูก PB Valley เชียงราย
+                    </div>
+                  </div>
+
+                  <!-- Slide 15: ผลโกโก้ 8 -->
+                  <div class="farm-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-title="ผลโกโก้ 8: วัตถุดิบคราฟต์ช็อกโกแลต">
+                    <img src="img/top view cocao/farm-14.jpg" alt="ผลโกโก้คุณภาพสูงพร้อมแปรรูป" class="w-full h-full object-contain sm:object-cover bg-black">
+                    <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-xs">
+                      <span class="font-semibold text-gold-400">ผลโกโก้ 8:</span> ผลโกโก้คุณภาพสูงพร้อมเข้าสู่กระบวนการหมักและแปรรูป Bean to Bar
                     </div>
                   </div>
 
@@ -501,7 +549,7 @@
 
                 <!-- Slide Counter Badge -->
                 <div class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[11px] font-medium border border-white/20">
-                  <span id="farm-slide-counter">1 / 9: คลิปวิดีโอ</span>
+                  <span id="farm-slide-counter">1 / 15: คลิปวิดีโอ</span>
                 </div>
 
                 <!-- Navigation Chevrons -->
@@ -512,58 +560,82 @@
                   <i class="fa-solid fa-chevron-right text-sm"></i>
                 </button>
 
-                <!-- Indicator Dots (9 dots) -->
-                <div id="farm-slider-dots" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
-                  <button type="button" class="w-5 h-2 rounded-full bg-white transition-all cursor-pointer" data-index="0" title="คลิปวิดีโอ"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="1" title="ภาพมุมสูง 1"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="2" title="ภาพมุมสูง 2"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="3" title="ภาพมุมสูง 3"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="4" title="ภาพมุมสูง 4"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="5" title="ภาพมุมสูง 5"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="6" title="ภาพมุมสูง 6"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="7" title="ภาพมุมสูง 7"></button>
-                  <button type="button" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="8" title="ภาพมุมสูง 8"></button>
+                <!-- Indicator Dots (15 dots) -->
+                <div id="farm-slider-dots" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1">
+                  <button type="button" class="w-4 h-1.5 rounded-full bg-white transition-all cursor-pointer" data-index="0" title="คลิปวิดีโอ"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="1" title="ภาพมุมสูง 1"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="2" title="ภาพมุมสูง 2"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="3" title="ภาพมุมสูง 3"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="4" title="ภาพมุมสูง 4"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="5" title="ภาพมุมสูง 5"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="6" title="ภาพมุมสูง 6"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="7" title="ต้นโกโก้ 1"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="8" title="ผลโกโก้ 2"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="9" title="ต้นโกโก้ 3"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="10" title="ผลโกโก้ 4"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="11" title="ผลโกโก้ 5"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="12" title="ผลโกโก้ 6"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="13" title="ผลโกโก้ 7"></button>
+                  <button type="button" class="w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer" data-index="14" title="ผลโกโก้ 8"></button>
                 </div>
               </div>
 
-              <!-- Thumbnails Row (Video + 8 Photos) -->
-              <div class="flex items-center justify-between gap-1.5 overflow-x-auto pb-1 pt-0.5">
+              <!-- Thumbnails Row (Video + 14 Photos: Smooth Scrollable) -->
+              <div id="farm-thumbnails-scroll" class="flex items-center gap-1.5 overflow-x-auto pb-1.5 pt-0.5 select-none scroll-smooth">
                 <!-- Thumb 0: Video -->
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-forest-600 ring-2 ring-forest-600/30 transition-all cursor-pointer opacity-100 scale-105 bg-cocoa-900 text-white flex flex-col items-center justify-center p-1" data-index="0" title="คลิปวิดีโอ">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-forest-600 ring-2 ring-forest-600/30 transition-all cursor-pointer opacity-100 scale-105 bg-cocoa-900 text-white flex flex-col items-center justify-center p-1" data-index="0" title="คลิปวิดีโอ">
                   <i class="fa-brands fa-youtube text-red-500 text-base"></i>
                   <span class="text-[9px] font-bold mt-0.5 leading-none">วิดีโอ</span>
                 </button>
-                <!-- Thumb 1-8: Photos -->
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="1">
-                  <img src="img/top view cocao/top-view-1.jpg" alt="thumb 1" class="w-full h-full object-cover">
+                <!-- Thumb 1-14: Photos -->
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="1" title="ภาพมุมสูง 1">
+                  <img src="img/top view cocao/farm-1.jpg" alt="thumb 1" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="2">
-                  <img src="img/top view cocao/top-view-2.jpg" alt="thumb 2" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="2" title="ภาพมุมสูง 2">
+                  <img src="img/top view cocao/farm-2.jpg" alt="thumb 2" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="3">
-                  <img src="img/top view cocao/top-view-3.jpg" alt="thumb 3" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="3" title="ภาพมุมสูง 3">
+                  <img src="img/top view cocao/farm-3.jpg" alt="thumb 3" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="4">
-                  <img src="img/top view cocao/top-view-4.jpg" alt="thumb 4" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="4" title="ภาพมุมสูง 4">
+                  <img src="img/top view cocao/farm-4.jpg" alt="thumb 4" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="5">
-                  <img src="img/top view cocao/top-view-5.jpg" alt="thumb 5" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="5" title="ภาพมุมสูง 5">
+                  <img src="img/top view cocao/farm-5.jpg" alt="thumb 5" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="6">
-                  <img src="img/top view cocao/top-view-6.jpg" alt="thumb 6" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="6" title="ภาพมุมสูง 6">
+                  <img src="img/top view cocao/farm-6.jpg" alt="thumb 6" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="7">
-                  <img src="img/top view cocao/top-view-7.jpg" alt="thumb 7" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="7" title="ต้นโกโก้ 1">
+                  <img src="img/top view cocao/farm-7.jpg" alt="thumb 7" class="w-full h-full object-cover">
                 </button>
-                <button type="button" class="farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="8">
-                  <img src="img/top view cocao/top-view-8.jpg" alt="thumb 8" class="w-full h-full object-cover">
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="8" title="ผลโกโก้ 2">
+                  <img src="img/top view cocao/farm-8.jpg" alt="thumb 8" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="9" title="ต้นโกโก้ 3">
+                  <img src="img/top view cocao/farm-9.jpg" alt="thumb 9" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="10" title="ผลโกโก้ 4">
+                  <img src="img/top view cocao/farm-10.jpg" alt="thumb 10" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="11" title="ผลโกโก้ 5">
+                  <img src="img/top view cocao/farm-11.jpg" alt="thumb 11" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="12" title="ผลโกโก้ 6">
+                  <img src="img/top view cocao/farm-12.jpg" alt="thumb 12" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="13" title="ผลโกโก้ 7">
+                  <img src="img/top view cocao/farm-13.jpg" alt="thumb 13" class="w-full h-full object-cover">
+                </button>
+                <button type="button" class="farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100" data-index="14" title="ผลโกโก้ 8">
+                  <img src="img/top view cocao/farm-14.jpg" alt="thumb 14" class="w-full h-full object-cover">
                 </button>
               </div>
 
               <!-- Helpful Note -->
               <p class="text-[11px] text-stone-400 text-center flex items-center justify-center gap-1.5">
                 <i class="fa-solid fa-hand-pointer text-forest-700"></i>
-                <span>เลื่อนได้ทันที: กดลูกศร ❮ ❯ หรือแตะเลือกรูปเพื่อชมวิดีโอและภาพมุมสูงทั้ง 8 ภาพ</span>
+                <span>เลื่อนได้ทันที: กดลูกศร ❮ ❯ หรือเลื่อนแถบรูปย่อเพื่อชมวิดีโอและภาพสวนโกโก้ทั้งหมด 14 ภาพ</span>
               </p>
             </div>
 

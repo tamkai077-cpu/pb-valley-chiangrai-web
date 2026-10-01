@@ -304,28 +304,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Update Counter
       if (farmSlideCounter) {
-        if (currentSlide === 0) {
-          farmSlideCounter.textContent = `1 / ${totalSlides}: คลิปวิดีโอ`;
-        } else {
-          farmSlideCounter.textContent = `${currentSlide + 1} / ${totalSlides}: ภาพมุมสูง ${currentSlide}`;
-        }
+        const slide = farmSlides[currentSlide];
+        const title = slide ? slide.getAttribute('data-title') || (currentSlide === 0 ? 'คลิปวิดีโอ' : `ภาพที่ ${currentSlide}`) : '';
+        farmSlideCounter.textContent = `${currentSlide + 1} / ${totalSlides}: ${title}`;
       }
 
-      // Update Dots
+      // Update Dots (15 compact dots)
       farmDots.forEach((dot, i) => {
         if (i === currentSlide) {
-          dot.className = 'w-5 h-2 rounded-full bg-white transition-all cursor-pointer';
+          dot.className = 'w-4 h-1.5 rounded-full bg-white transition-all cursor-pointer';
         } else {
-          dot.className = 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer';
+          dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all cursor-pointer';
         }
       });
 
-      // Update Thumbnails
+      // Update Thumbnails & Auto-scroll active into view
       farmThumbs.forEach((thumb, i) => {
         if (i === currentSlide) {
-          thumb.className = 'farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-forest-600 ring-2 ring-forest-600/30 transition-all cursor-pointer opacity-100 scale-105 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
+          thumb.className = 'farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-forest-600 ring-2 ring-forest-600/30 transition-all cursor-pointer opacity-100 scale-105 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
+          try {
+            thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } catch (e) {}
         } else {
-          thumb.className = 'farm-thumb-btn flex-1 min-w-[36px] aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
+          thumb.className = 'farm-thumb-btn shrink-0 w-12 sm:w-14 aspect-[4/3] rounded-lg overflow-hidden border-2 border-transparent transition-all cursor-pointer opacity-60 hover:opacity-100 ' + (i === 0 ? 'bg-cocoa-900 text-white flex flex-col items-center justify-center p-1' : '');
         }
       });
     }
