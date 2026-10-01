@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (heroText) {
       const dict = (window.TRANSLATIONS && window.TRANSLATIONS[currentLang]) ? window.TRANSLATIONS[currentLang] : null;
-      const farmLabel = (dict && dict['weather.hero_label']) ? dict['weather.hero_label'] : (isEn ? 'Chiang Rai Farm' : 'ไร่เชียงราย');
+      const farmLabel = (dict && dict['weather.hero_label']) ? dict['weather.hero_label'] : (isEn ? 'Ban Lo Pa Ha Farm' : 'บ้านโล๊ะป่าห้า');
       heroText.innerHTML = `${farmLabel} <strong id="hero-weather-temp" class="text-gold-300 font-bold">${latestWeather.temp}°C</strong> • <span id="hero-weather-desc">${descText}</span>`;
     }
 

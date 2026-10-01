@@ -105,9 +105,9 @@ window.TRANSLATIONS = {
     "contact.subtitle": "สัมผัสมนต์เสน่ห์ไร่โกโก้ริมทะเลสาบ และทิวทัศน์ขุนเขาเมืองเหนือ พร้อมการต้อนรับที่อบอุ่น",
     
     // Card 1
-    "card1.badge": "อำเภอเวียงชัย จ.เชียงราย",
+    "card1.badge": "บ้านโล๊ะป่าห้า ต.แม่ข้าวต้ม อ.เมือง จ.เชียงราย",
     "card1.title": "สถานที่ตั้ง & ร้านอาหาร",
-    "card1.desc": "ร้านอาหารกาสะลอง ไร่พีบี วัลเล่ย์ เชียงราย บรรยากาศริมทะเลสาบส่วนตัว โอบล้อมด้วยไร่โกโก้และขุนเขาธรรมชาติ",
+    "card1.desc": "ร้านอาหารกาสะลอง ไร่พีบี วัลเล่ย์ เชียงราย 374 หมู่ 7 บ้านโล๊ะป่าห้า บรรยากาศริมทะเลสาบส่วนตัว โอบล้อมด้วยไร่โกโก้และขุนเขาธรรมชาติ",
     "card1.btn": "นำทางด้วย Google Maps",
 
     // Card 2
@@ -155,8 +155,8 @@ window.TRANSLATIONS = {
     "weather.live": "สดจาก GPS",
     "weather.humidity": "ความชื้น",
     "weather.wind": "ความเร็วลม",
-    "weather.hero_label": "ไร่เชียงราย",
-    "weather.location_note": "ไร่ พีบี วัลเล่ย์ • ริมทะเลสาบและสวนโกโก้",
+    "weather.hero_label": "บ้านโล๊ะป่าห้า",
+    "weather.location_note": "บ้านโล๊ะป่าห้า ต.แม่ข้าวต้ม • ไร่ พีบี วัลเล่ย์ เชียงราย",
     "weather.demo_label": "เลือกบรรยากาศหน้าปก:",
     "weather.demo_hint": "คลิกเปลี่ยนเอฟเฟกต์",
     "weather.demo_sunny": "แดดออก",
@@ -276,9 +276,9 @@ window.TRANSLATIONS = {
     "contact.subtitle": "Experience the charm of our lakeside cocoa estate and northern mountain views, with warm northern hospitality.",
     
     // Card 1
-    "card1.badge": "Wiang Chai, Chiang Rai",
+    "card1.badge": "Ban Lo Pa Ha, Mueang Chiang Rai",
     "card1.title": "Location & Restaurant",
-    "card1.desc": "Kasa-Long Restaurant at PB Valley Chiang Rai. Serene private lake atmosphere surrounded by cacao groves and mountains.",
+    "card1.desc": "Kasa-Long Restaurant at PB Valley Chiang Rai, 374 Moo 7 Ban Lo Pa Ha. Lakeside dining surrounded by organic cacao groves and scenic mountains.",
     "card1.btn": "Navigate with Google Maps",
 
     // Card 2
@@ -326,8 +326,8 @@ window.TRANSLATIONS = {
     "weather.live": "Live GPS",
     "weather.humidity": "Humidity",
     "weather.wind": "Wind",
-    "weather.hero_label": "Chiang Rai Farm",
-    "weather.location_note": "PB Valley • Lakeside & Cocoa Estate",
+    "weather.hero_label": "Ban Lo Pa Ha Farm",
+    "weather.location_note": "Ban Lo Pa Ha, Mae Khao Tom • PB Valley Chiang Rai",
     "weather.demo_label": "Hero Atmosphere:",
     "weather.demo_hint": "Click to preview",
     "weather.demo_sunny": "Sunny",
