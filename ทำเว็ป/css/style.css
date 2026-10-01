@@ -181,3 +181,122 @@ button, input, textarea, select {
   background-color: rgba(18, 11, 8, 0.75);
   backdrop-filter: blur(6px);
 }
+
+/* ==============================================================
+   FALLING LEAVES EFFECT (HERO SECTION ONLY)
+   Gentle, slow, floating drift with organic sway & rotation
+   ============================================================== */
+.falling-leaves-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.falling-leaf {
+  position: absolute;
+  top: -50px;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+@keyframes leafFallSway1 {
+  0% {
+    top: -45px;
+    transform: translateX(0) rotate(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--leaf-opacity, 0.7);
+  }
+  28% {
+    transform: translateX(35px) rotate(45deg) rotateY(45deg);
+  }
+  52% {
+    transform: translateX(-30px) rotate(115deg) rotateY(160deg);
+  }
+  76% {
+    transform: translateX(25px) rotate(190deg) rotateY(60deg);
+    opacity: var(--leaf-opacity, 0.7);
+  }
+  92% {
+    opacity: var(--leaf-opacity, 0.7);
+  }
+  100% {
+    top: 106%;
+    transform: translateX(-15px) rotate(265deg) rotateY(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes leafFallSway2 {
+  0% {
+    top: -45px;
+    transform: translateX(0) rotate(25deg) rotateX(0deg);
+    opacity: 0;
+  }
+  14% {
+    opacity: var(--leaf-opacity, 0.65);
+  }
+  32% {
+    transform: translateX(-40px) rotate(-30deg) rotateX(60deg);
+  }
+  58% {
+    transform: translateX(35px) rotate(65deg) rotateX(150deg);
+  }
+  82% {
+    transform: translateX(-20px) rotate(145deg) rotateX(40deg);
+    opacity: var(--leaf-opacity, 0.65);
+  }
+  94% {
+    opacity: var(--leaf-opacity, 0.65);
+  }
+  100% {
+    top: 106%;
+    transform: translateX(12px) rotate(215deg) rotateX(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes leafFallSway3 {
+  0% {
+    top: -45px;
+    transform: translateX(0) rotate(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--leaf-opacity, 0.6);
+  }
+  35% {
+    transform: translateX(28px) rotate(35deg) rotateY(45deg);
+  }
+  62% {
+    transform: translateX(-35px) rotate(-40deg) rotateY(130deg);
+  }
+  85% {
+    transform: translateX(18px) rotate(70deg) rotateY(55deg);
+    opacity: var(--leaf-opacity, 0.6);
+  }
+  93% {
+    opacity: var(--leaf-opacity, 0.6);
+  }
+  100% {
+    top: 106%;
+    transform: translateX(-12px) rotate(140deg);
+    opacity: 0;
+  }
+}
+
+.leaf-anim-1 {
+  animation: leafFallSway1 var(--leaf-duration, 14s) ease-in-out infinite;
+}
+
+.leaf-anim-2 {
+  animation: leafFallSway2 var(--leaf-duration, 16s) ease-in-out infinite;
+}
+
+.leaf-anim-3 {
+  animation: leafFallSway3 var(--leaf-duration, 18s) ease-in-out infinite;
+}
