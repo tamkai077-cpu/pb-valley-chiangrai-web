@@ -163,7 +163,7 @@ window.TRANSLATIONS = {
     "weather.demo_rainy": "ฝนตก",
     "weather.demo_misty": "หมอกลง",
     "weather.demo_night": "หิ่งห้อย",
-    "weather.demo_auto": "สดจริง",
+    "weather.demo_auto": "ความเป็นจริง",
 
     // Video Placeholders
     "video.placeholder_title": "รอวางลิงก์ YouTube",
