@@ -4,6 +4,27 @@
  */
 window.TRANSLATIONS = {
   th: {
+    "gallery.heading": "ผลิตภัณฑ์โกโก้จาก PB Valley เชียงราย",
+    "gallery.stock0.title": "โกโก้แมส",
+    "gallery.stock1.title": "ชาเปลือกโกโก้",
+    "gallery.stock2.title": "ผงโกโก้100%",
+    "gallery.stock3.title": "ลูกอมโกโก้อัดเม็ด",
+    "gallery.stock4.title": "ลูกอมโกโก้อัดเม็ด",
+    "gallery.label": "รูปสินค้า PB Valley เชียงราย",
+    "gallery.previous": "เลื่อนสินค้าก่อนหน้า",
+    "gallery.next": "เลื่อนสินค้าถัดไป",
+    "gallery.pause": "หยุดเลื่อนรูปสินค้า",
+    "gallery.play": "เล่นรูปสินค้าอัตโนมัติ",
+    "gallery.bar.title": "ช็อกโกแลตบาร์",
+    "gallery.bar.desc": "คราฟต์ช็อกโกแลต",
+    "gallery.powder.title": "ผงโกโก้ 100%",
+    "gallery.powder.desc": "ขนาด 100 กรัม / 250 กรัม",
+    "gallery.tablets.title": "โกโก้แท็บเล็ต",
+    "gallery.tablets.desc": "ช็อกโกแลตชิ้นพอดีคำ",
+    "gallery.mass.title": "โกโก้แมส 100%",
+    "gallery.mass.desc": "Handcraft Cocoa Mass",
+    "gallery.tea.title": "ชาเปลือกโกโก้",
+    "gallery.tea.desc": "Cocoa Husk Tea • 12 ซอง",
     // Page Title
     "doc.title": "PB Valley เชียงราย - ไร่โกโก้คุณภาพริมทะเลสาบ",
 
@@ -175,6 +196,27 @@ window.TRANSLATIONS = {
   },
 
   en: {
+    "gallery.heading": "Cocoa Products from PB Valley Chiang Rai",
+    "gallery.stock0.title": "Cocoa Mass",
+    "gallery.stock1.title": "Cocoa Husk Tea",
+    "gallery.stock2.title": "100% Cocoa Powder",
+    "gallery.stock3.title": "Cocoa Tablet Candy",
+    "gallery.stock4.title": "Cocoa Tablet Candy",
+    "gallery.label": "PB Valley Chiang Rai product gallery",
+    "gallery.previous": "Previous products",
+    "gallery.next": "Next products",
+    "gallery.pause": "Pause product scrolling",
+    "gallery.play": "Resume automatic product scrolling",
+    "gallery.bar.title": "Chocolate Bar",
+    "gallery.bar.desc": "Craft Chocolate",
+    "gallery.powder.title": "100% Cocoa Powder",
+    "gallery.powder.desc": "100 g / 250 g",
+    "gallery.tablets.title": "Cocoa Tablets",
+    "gallery.tablets.desc": "Bite-sized Chocolate",
+    "gallery.mass.title": "100% Cocoa Mass",
+    "gallery.mass.desc": "Handcraft Cocoa Mass",
+    "gallery.tea.title": "Cocoa Husk Tea",
+    "gallery.tea.desc": "Cocoa Husk Tea • 12 sachets",
     // Page Title
     "doc.title": "PB Valley Chiang Rai - Premium Cocoa Farm & Lakeside Retreat",
 

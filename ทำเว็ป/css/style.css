@@ -339,3 +339,28 @@ button, input, textarea, select {
     opacity: 0.3;
   }
 }
+
+/* /* Product photos between the product overview and contact section. */
+.product-gallery { position: relative; padding: 24px 0 58px; background: radial-gradient(ellipse at top right, #eee0cf66, transparent 45%), #fdfbf7; }
+.product-gallery-toolbar { margin: 0 0 16px; padding: 0; display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+.product-gallery-arrow, .product-gallery-toggle { width: 42px; height: 42px; border-radius: 50%; border: 1px solid #dfc9b2; background: #fffaf2; color: #855830; cursor: pointer; transition: background .2s; }
+.product-gallery-toggle { width: 34px; height: 34px; font-size: 12px; }
+.product-gallery-toolbar button:hover { background: #f2e3d2; }
+.product-gallery-toolbar button:focus-visible { outline: 2px solid #a77948; outline-offset: 4px; }
+.product-gallery-window { overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; }
+.product-gallery-window.is-dragging { cursor: grabbing; }
+.product-gallery-track { display: flex; width: max-content; will-change: transform; }
+.product-gallery-group { display: flex; gap: 18px; padding-right: 18px; }
+.product-photo { margin: 0; width: clamp(160px, 16vw, 210px); flex-shrink: 0; text-align: center; }
+.product-photo img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 20px; background: #efe6da; }
+.product-photo figcaption { padding: 12px 4px 0; }
+.product-photo h4 { color: #472d1e; font-size: 16px; font-weight: 700; line-height: 1.5; }
+.product-photo p { color: #9b7253; font-size: 13px; margin-top: 3px; line-height: 1.6; }
+@media (max-width: 640px) { .product-gallery { padding: 12px 0 34px; } .product-gallery-group { gap: 12px; padding-right: 12px; } .product-photo { width: 140px; } .product-photo img { border-radius: 14px; } .product-photo h4 { font-size: 14px; } .product-photo p { font-size: 11px; } .product-gallery-toolbar { padding: 0; } }
+@media (prefers-reduced-motion: reduce) { .product-gallery-window { overflow-x: auto; } .product-gallery-group[aria-hidden="true"], .product-gallery-toggle { display: none; } }
+.product-gallery-heading { text-align: center; margin: 0 0 20px; color: #472d1e; font-size: clamp(18px, 2vw, 24px); font-weight: 700; line-height: 1.5; }
+.product-gallery-toolbar button { flex-shrink: 0; }
+@media (max-width: 640px) {
+  .product-gallery-toolbar { flex-wrap: wrap; gap: 10px; }
+  .product-gallery-heading { flex-basis: 100%; margin-bottom: 4px; }
+}

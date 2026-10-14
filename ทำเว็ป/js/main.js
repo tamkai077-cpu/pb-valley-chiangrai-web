@@ -605,6 +605,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Translate accessible gallery labels as well as visible captions.
+    ['aria-label', 'alt'].forEach(attribute => {
+      document.querySelectorAll(`[data-i18n-${attribute}]`).forEach(element => {
+        const key = element.getAttribute(`data-i18n-${attribute}`);
+        if (dict[key] !== undefined) element.setAttribute(attribute, dict[key]);
+      });
+    });
+
     // Update switcher buttons UI without overriding responsive sizing
     document.querySelectorAll('.lang-btn').forEach(btn => {
       const btnLang = btn.getAttribute('data-lang');
@@ -792,3 +800,123 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// // Continuous Stock gallery with wheel and pointer dragging controls.
+const productGallery = document.querySelector('.product-gallery');
+const productGalleryToggle = document.querySelector('.product-gallery-toggle');
+if (productGallery && productGalleryToggle) {
+  const viewport = productGallery.querySelector('.product-gallery-window');
+  const track = productGallery.querySelector('.product-gallery-track');
+  const group = track.querySelector('.product-gallery-group');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let offset = 0;
+  let loopWidth = group.getBoundingClientRect().width;
+  let previousTime = null;
+  let dragPointer = null;
+  let pointerX = 0;
+  let wheelActive = false;
+  let wheelResumeTimer;
+
+  function renderGallery() {
+    if (!loopWidth || reducedMotion.matches) {
+      track.style.transform = '';
+      return;
+    }
+    offset = ((offset % loopWidth) + loopWidth) % loopWidth;
+    track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+  }
+
+  const duplicateGroup = track.querySelector('.product-gallery-group[aria-hidden="true"]');
+  const originalCards = Array.from(group.children);
+  function fillGalleryWidth() {
+    while (group.getBoundingClientRect().width < viewport.clientWidth && originalCards.length) {
+      originalCards.forEach((card) => {
+        const copy = card.cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        group.appendChild(copy);
+        duplicateGroup.appendChild(copy.cloneNode(true));
+      });
+    }
+    loopWidth = group.getBoundingClientRect().width;
+    renderGallery();
+  }
+  fillGalleryWidth();
+  window.addEventListener('resize', fillGalleryWidth);
+
+  productGallery.querySelectorAll('[data-gallery-direction]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const step = originalCards[0].getBoundingClientRect().width + parseFloat(getComputedStyle(group).columnGap);
+      const delta = Number(button.dataset.galleryDirection) * step;
+      if (reducedMotion.matches) {
+        viewport.scrollBy({ left: delta, behavior: 'auto' });
+      } else {
+        offset += delta;
+        renderGallery();
+      }
+    });
+  });
+
+  new ResizeObserver(() => {
+    loopWidth = group.getBoundingClientRect().width;
+    renderGallery();
+  }).observe(group);
+
+  function animateGallery(time) {
+    const elapsed = previousTime === null ? 0 : Math.min(time - previousTime, 64);
+    previousTime = time;
+    if (!reducedMotion.matches && dragPointer === null && !wheelActive && !productGallery.classList.contains('is-paused')) {
+      offset += loopWidth / 48000 * elapsed;
+      renderGallery();
+    }
+    requestAnimationFrame(animateGallery);
+  }
+  requestAnimationFrame(animateGallery);
+
+  viewport.addEventListener('wheel', (event) => {
+    if (event.ctrlKey || reducedMotion.matches) return;
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    if (!delta) return;
+    event.preventDefault();
+    wheelActive = true;
+    clearTimeout(wheelResumeTimer);
+    wheelResumeTimer = setTimeout(() => { wheelActive = false; }, 250);
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
+    offset += delta * unit;
+    renderGallery();
+  }, { passive: false });
+
+  viewport.addEventListener('dragstart', (event) => event.preventDefault());
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0 || reducedMotion.matches) return;
+    dragPointer = event.pointerId;
+    pointerX = event.clientX;
+    viewport.setPointerCapture(dragPointer);
+    viewport.classList.add('is-dragging');
+  });
+  viewport.addEventListener('pointermove', (event) => {
+    if (event.pointerId !== dragPointer) return;
+    offset += pointerX - event.clientX;
+    pointerX = event.clientX;
+    renderGallery();
+  });
+  function endGalleryDrag(event) {
+    if (event.pointerId !== dragPointer) return;
+    dragPointer = null;
+    viewport.classList.remove('is-dragging');
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+  }
+  viewport.addEventListener('pointerup', endGalleryDrag);
+  viewport.addEventListener('pointercancel', endGalleryDrag);
+  viewport.addEventListener('lostpointercapture', endGalleryDrag);
+  reducedMotion.addEventListener('change', renderGallery);
+
+  productGalleryToggle.addEventListener('click', () => {
+    const paused = productGallery.classList.toggle('is-paused');
+    productGalleryToggle.setAttribute('aria-pressed', String(paused));
+    const labelKey = paused ? 'gallery.play' : 'gallery.pause';
+    productGalleryToggle.setAttribute('data-i18n-aria-label', labelKey);
+    const dict = window.TRANSLATIONS[document.documentElement.lang] || window.TRANSLATIONS.th;
+    productGalleryToggle.setAttribute('aria-label', dict[labelKey]);
+    productGalleryToggle.querySelector('i').className = paused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+  });
+}
