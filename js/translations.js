@@ -187,8 +187,8 @@ window.TRANSLATIONS = {
     "weather.demo_auto": "ความเป็นจริง",
 
     // Video Placeholders
-    "video.placeholder_title": "รอวางลิงก์ YouTube",
-    "video.placeholder_desc": "เปิดไฟล์ index.html ใน VS Code แล้ววางแท็ก <iframe> หรือลิงก์คลิปวิดีโอได้ทันที",
+    "video.placeholder_title": "วิดีโอเร็ว ๆ นี้",
+    "video.placeholder_desc": "เตรียมพบกับเรื่องราวของ PB Valley เชียงรายผ่านวิดีโอเร็ว ๆ นี้",
 
     // Footer
     "footer.company": "บริษัท พีบี วัลเล่ย์ เชียงราย จำกัด",
@@ -379,8 +379,8 @@ window.TRANSLATIONS = {
     "weather.demo_auto": "Live GPS",
 
     // Video Placeholders
-    "video.placeholder_title": "Waiting for YouTube Video Link",
-    "video.placeholder_desc": "Open index.html in VS Code and paste your YouTube <iframe> embed tag or video link.",
+    "video.placeholder_title": "Video Coming Soon",
+    "video.placeholder_desc": "Discover the story of PB Valley Chiang Rai in our upcoming videos.",
 
     // Footer
     "footer.company": "PB Valley Chiang Rai Co., Ltd.",

@@ -340,7 +340,7 @@ button, input, textarea, select {
   }
 }
 
-/* /* Product photos between the product overview and contact section. */
+/* Product photos between the product overview and contact section. */
 .product-gallery { position: relative; padding: 24px 0 58px; background: radial-gradient(ellipse at top right, #eee0cf66, transparent 45%), #fdfbf7; }
 .product-gallery-toolbar { margin: 0 0 16px; padding: 0; display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
 .product-gallery-arrow, .product-gallery-toggle { width: 42px; height: 42px; border-radius: 50%; border: 1px solid #dfc9b2; background: #fffaf2; color: #855830; cursor: pointer; transition: background .2s; }
@@ -364,3 +364,4 @@ button, input, textarea, select {
   .product-gallery-toolbar { flex-wrap: wrap; gap: 10px; }
   .product-gallery-heading { flex-basis: 100%; margin-bottom: 4px; }
 }
+@media (max-width: 640px) { .product-gallery-heading { margin-bottom: 16px; overflow-wrap: anywhere; } .product-photo h4 { overflow-wrap: anywhere; } }
