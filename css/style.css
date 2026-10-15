@@ -365,3 +365,17 @@ button, input, textarea, select {
   .product-gallery-heading { flex-basis: 100%; margin-bottom: 4px; }
 }
 @media (max-width: 640px) { .product-gallery-heading { margin-bottom: 16px; overflow-wrap: anywhere; } .product-photo h4 { overflow-wrap: anywhere; } }
+
+/* Hide scrollbar chrome on phones while preserving scrolling and swiping. */
+@media (max-width: 640px) {
+  html, body, body * { scrollbar-width: none; }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
+}
+/* Center contact card content on phones; retain desktop alignment. */
+@media (max-width: 767px) {
+  .contact-info-cards > .group { text-align: center; }
+  .contact-info-cards > .group > div:not(.absolute):first-of-type { width: 100%; }
+  .contact-info-cards > .group > div > .w-14 { margin-left: auto; margin-right: auto; }
+}
