@@ -28,9 +28,9 @@ $url = "http://localhost:$port/index.html"
 Write-Host "==========================================================" -ForegroundColor Green
 Write-Host "   PB Valley Chiang Rai - Web Server is RUNNING" -ForegroundColor Yellow
 Write-Host "   URL: $url" -ForegroundColor Cyan
-Write-Host "   (แก้ปัญหา YouTube Error 153 เล่นวิดีโอได้ 100%)" -ForegroundColor White
+Write-Host "    Welcom to PB Valley Wabsite "
 Write-Host "==========================================================" -ForegroundColor Green
-Write-Host "เปิดหน้าต่างนี้ไว้ขณะใช้งานเว็บ (ปิดหน้าต่างนี้เมื่อต้องการหยุด)" -ForegroundColor Gray
+Write-Host "Keep this window open while using the web (close this window when you wish to stop)." -ForegroundColor Gray
 
 Start-Process $url
 
